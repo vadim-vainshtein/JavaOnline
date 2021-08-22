@@ -9,7 +9,7 @@ ________
 2.
 */
 
-package basics.task05
+package basics.task05;
 
 import basics.task05.time.Time;
 
