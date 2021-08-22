@@ -19,18 +19,18 @@ public class Task06 {
 		String message = new String();
 		point.setX(Integer.parseInt(args[0]));
 		point.setY(Integer.parseInt(args[1]));
-		
+
 		//заранее подготовим часть сообщения
-		message = "Point (" + point.getX() + 
+		message = "Point (" + point.getX() +
 				"," + point.getY() + ") ";
-		
+
 		if(point.checkCoordinates()) {
 			message += "is inside the area";
 		}
 		else {
 			message += "is outside the area";
 		}
-		
+
 		System.out.println(message);
 	}
 }
