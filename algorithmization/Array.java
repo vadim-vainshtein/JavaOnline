@@ -1,14 +1,14 @@
 /*
- * FillArray - набор функций для заполнения массива случайными данными
+ * Array - набор методов для работы с массивами
  */
 
 package algorithmization;
 
 import java.lang.Math;
 
-public class FillArray {
+public class Array {
 	
-	// для заполнения натуральными числами
+	// для заполнения случайными натуральными числами
 	public static int[] fillNatural(int length, int max_value) {
 		
 		int[] result = new int[length];
@@ -21,7 +21,7 @@ public class FillArray {
 		return result;
 	}
 	
-	// для заполнения вещественными числами
+	// для заполнения случайными вещественными числами
 	public static double[] fillDouble(int length, double range) {
 		
 		double[] result = new double[length];
@@ -31,5 +31,12 @@ public class FillArray {
 		}
 		
 		return result;
+	}
+	
+	public static void printDouble(double[] array) {
+		
+		for(int i = 0; i < array.length; i++) {
+			System.out.printf("%.3f; ", array[i]);
+		}
 	}
 }

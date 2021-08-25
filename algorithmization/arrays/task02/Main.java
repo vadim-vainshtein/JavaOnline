@@ -4,7 +4,7 @@
  */
 
 package algorithmization.arrays.task02;
-import algorithmization.FillArray;
+import algorithmization.Array;
 
 class Main {
 	
@@ -16,16 +16,15 @@ class Main {
 		n = Integer.parseInt(args[0]);
 		z = Double.parseDouble(args[1]);
 		
-		double[] a = FillArray.fillDouble(n, 100.0);
+		double[] a = Array.fillDouble(n, 100.0);
 		
 		counter = 0;
 		
 		System.out.println("z = " + z +";");
 		System.out.println("Array before replacements:");
+		Array.printDouble (a);
 		
 		for(int i = 0; i < n; i++) {
-		
-			System.out.printf("%.3f; ", a[i]);
 			if(a[i] > z) {
 				a[i] = z;
 				counter++;
@@ -33,10 +32,7 @@ class Main {
 		}
 		
 		System.out.println("\nArray after replacements:");
-		
-		for(int i = 0; i < n; i++) {
-			System.out.printf("%.3f; ", a[i]);
-		}
+		Array.printDouble (a);
 		
 		System.out.println("\nNumber of replacements: " + counter);
 	}
