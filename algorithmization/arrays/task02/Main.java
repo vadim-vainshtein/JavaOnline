@@ -25,7 +25,7 @@ class Main {
 		
 		for(int i = 0; i < n; i++) {
 		
-			System.out.print(a[i] + "; ");
+			System.out.printf("%.3f; ", a[i]);
 			if(a[i] > z) {
 				a[i] = z;
 				counter++;
@@ -35,7 +35,7 @@ class Main {
 		System.out.println("\nArray after replacements:");
 		
 		for(int i = 0; i < n; i++) {
-			System.out.print(a[i] + "; ");
+			System.out.printf("%.3f; ", a[i]);
 		}
 		
 		System.out.println("\nNumber of replacements: " + counter);
