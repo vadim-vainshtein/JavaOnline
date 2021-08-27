@@ -33,10 +33,39 @@ public class Array {
 		return result;
 	}
 	
+	
+	// вывести массив целых чисел на экран
+	public static void printInteger(int[] array) {
+		
+		for(int i = 0; i < array.length; i++) {
+			System.out.printf("%d; ", array[i]);
+		}
+	}
+	
+	// вывести массив вещественных чисел на экран
 	public static void printDouble(double[] array) {
 		
 		for(int i = 0; i < array.length; i++) {
 			System.out.printf("%.3f; ", array[i]);
+		}
+	}
+	
+	// поменять местами два элемента
+	public static void swapElements(double[] array, int a, int b) {
+		
+		double tmp = array[a];
+		array[a] = array[b];
+		array[b] = tmp;
+	}
+	
+	//Найти минимальный элемент массива
+	public static double min(double[] array) {
+		
+		double result = double.MAX_VALUE;
+		for(int i = 0; i < array.length; i++){
+			if(array[i] < result) {
+				result = array[i];
+			}
 		}
 	}
 }
