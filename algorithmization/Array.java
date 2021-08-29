@@ -12,10 +12,26 @@ public class Array {
 	public static int[] fillNatural(int length, int max_value) {
 		
 		int[] result = new int[length];
-		if(max_value == 0) max_value = Integer.MAX_VALUE;
+		
+		// будем начинать не с 0, а с 1, поэтому верхняя граница на единицу меньше
+		if(max_value > 0) {
+			max_value--;
+		}
 		
 		for(int i = 0; i < length; i++) {
 			result[i] = (int)(Math.random() * max_value) + 1; // натуральные числа обычно считаются с 1
+		}
+		
+		return result;
+	}
+	
+	// для заполнения случайными целыми числами
+	public static int[] fillInteger(int length, int max_value) {
+		
+		int[] result = new int[length];
+		
+		for(int i = 0; i < length; i++) {
+			result[i] = (int)(Math.random() * max_value * 2 - max_value);
 		}
 		
 		return result;
@@ -62,6 +78,18 @@ public class Array {
 	public static double min(double[] array) {
 		
 		double result = Double.MAX_VALUE;
+		for(int i = 0; i < array.length; i++){
+			if(array[i] < result) {
+				result = array[i];
+			}
+		}
+		
+		return result;
+	}
+	
+	public static int min(int[] array) {
+		
+		int result = Integer.MAX_VALUE;
 		for(int i = 0; i < array.length; i++){
 			if(array[i] < result) {
 				result = array[i];
