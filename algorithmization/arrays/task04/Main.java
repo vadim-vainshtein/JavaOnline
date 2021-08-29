@@ -17,7 +17,7 @@ class Main {
 		n = Integer.parseInt(args[0]);
 		
 		//заполнить массив случайными числами
-		double[] a = FillArray.fillDouble(n, 100.0);
+		double[] a = Array.fillDouble(n, 100.0);
 		
 		indexMin = 0;
 		indexMax = 0;
@@ -36,14 +36,15 @@ class Main {
 			}
 			else if(a[i] < min) {
 				min = a[i];
-				max = i;
+				indexMin = i;
 			}
 		}
 		
 		// поменять элементы местами
-		Array.swapElements(a, min, max);
+		Array.swapElements(a, indexMin, indexMax);
 		
-		System.out.println("\nArray after swapping min and max:\n")
+		System.out.println("\nArray after swapping min and max:\n");
 		Array.printDouble(a);
+		System.out.println("");
 	}
 }

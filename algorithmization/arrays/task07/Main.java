@@ -13,13 +13,15 @@ class Main {
 		int n = Integer.parseInt(args[0]);
 		
 		//заполнить массив случайными числами
-		int[] a = FillArray.fillDouble(n*2, 100.0);
+		double[] a = Array.fillDouble(n*2, 100.0);
 		
 		System.out.println("Array:");
 		//вывести элементы массива в консоль 
 		Array.printDouble(a);
+		System.out.println("\n");
 		
-		double result = double.MIN_VALUE;
+		// Именно так, а не Double.MIN_VALUE, как я подумал сначала...
+		double result = -Double.MAX_VALUE;
 		double tmp;
 		
 		// это выражение понадобится в цикле, вычислим его раз и навсегда
@@ -28,11 +30,14 @@ class Main {
 		//пройдём по элементам массива, вычисляя нужные суммы, и находя максимум
 		for(int i=0; i<n; i++) {
 			tmp = a[i] + a[k-i];
+			
+			System.out.printf("a[%d] + a[%d] = %.3f\n", i, k-i, tmp);
+			
 			if(tmp > result) {
 				result = tmp;
 			}
 		}
 		
-		System.out.println("\nResult: " + result);
+		System.out.println("\nResult: " + result + "\n");
 	}
 }

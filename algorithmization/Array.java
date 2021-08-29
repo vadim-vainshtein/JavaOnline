@@ -61,11 +61,13 @@ public class Array {
 	//Найти минимальный элемент массива
 	public static double min(double[] array) {
 		
-		double result = double.MAX_VALUE;
+		double result = Double.MAX_VALUE;
 		for(int i = 0; i < array.length; i++){
 			if(array[i] < result) {
 				result = array[i];
 			}
 		}
+		
+		return result;
 	}
 }

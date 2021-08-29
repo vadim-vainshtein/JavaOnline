@@ -15,7 +15,7 @@ class Main {
 		// количество элементов массива
 		n = Integer.parseInt(args[0]);
 		
-		double[] a = FillArray.fillDouble(n, 100.0);
+		double[] a = Array.fillDouble(n, 100.0);
 		
 		positive = 0;
 		negative = 0;
@@ -37,7 +37,7 @@ class Main {
 			}
 		}
 		
-		System.out.printf("\nNegative: %d; positive: %d; null: %d",
+		System.out.printf("\nNegative: %d; positive: %d; null: %d\n",
 			negative, positive, zero);
 	}
 }

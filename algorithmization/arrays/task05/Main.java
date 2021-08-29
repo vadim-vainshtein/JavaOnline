@@ -17,7 +17,7 @@ class Main {
 		n = Integer.parseInt(args[0]);
 		
 		//заполнить массив случайными числами
-		int[] a = FillArray.fillDouble(n, 100.0);
+		int[] a = Array.fillNatural(n, 10);
 		
 		System.out.println("Array:");
 		//вывести элементы массива в консоль 
@@ -27,7 +27,7 @@ class Main {
 		for(int i = 0; i < n; i++) {
 			
 			if(a[i] > i) {
-				System.out.printf("a[%d] = %d\n", i, a[i]));
+				System.out.printf("a[%d] = %d\n", i, a[i]);
 			}
 		}
 	}

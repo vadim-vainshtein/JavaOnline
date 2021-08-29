@@ -18,23 +18,22 @@ class Main {
 		n = Integer.parseInt(args[0]);
 		
 		//заполнить массив случайными числами
-		int[] a = FillArray.fillDouble(n, 100.0);
+		double[] a = Array.fillDouble(n, 100.0);
 		
 		System.out.println("Array:");
 		//вывести элементы массива в консоль 
 		Array.printDouble(a);
 		
-		System.out.printf("\nSum of the elements with prime indices: %0.3f", 
-			primeSum(a));
+		System.out.printf("\nSum of the elements with prime indices: %.3f\n", primeSum(a));
 	}
 	
-	private static double primeSum(double a) {
+	private static double primeSum(double[] a) {
 		
 		int i, j, k;
 		
 		//массив, обозначающий, является ли элемент простым
 		//элементов на один больше, , поскольку индексы начинаются с 0, а номера элементов последовательности - с 1
-		boolean prime = new boolean[a.length + 1];
+		boolean[] prime = new boolean[a.length + 1];
 		// для начала установим всё в true, кроме 0 и 1
 		
 		prime[0] = prime[1] = false;
