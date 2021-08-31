@@ -1,14 +1,21 @@
-/* Matrix - класс для работы с матрицами
- * Матрица задана двумерным массивом m[rows][columns]
- */
-
 package algorithmization;
 
 import algorithmization.Array;
 
+/** Matrix - класс для работы с матрицами.
+ * Матрица задана двумерным массивом m[rows][columns]
+ * @author Vadim Vainshtein
+ * @version 31.08.2021
+ */
 public class Matrix {
 	
-	// заполнить матрицу случайными целыми числами
+	/** Заполняет матрицу случайными целыми числами
+	 @param rows - количество строк
+	 @param columns - количество столбцов
+	 @param range - диапазон допустимых значений [-range, range]
+	 @return возвращает указатель на созданную матрицу (двумерный массив)
+	 */
+	
 	public static int[][] fillInteger(int rows, int columns, int range) {
 		
 		int[][] m = new int[rows][];
@@ -19,6 +26,11 @@ public class Matrix {
 		
 		return m;
 	}
+	
+	/** Выводит целочисленную матрицу на экран
+	 @param m - матрица, которую необходимо вывести
+	 */
+	
 	public static void printInteger(int[][] m) {
 		for(int i = 0; i < m.length; i++) {
 			
@@ -32,6 +44,10 @@ public class Matrix {
 		System.out.println("");
 	}
 	
+	/** Выводит на экран столбец целочисленной матрицы
+	@param m - матрица
+	@param column - номер столбца (начиная с 0)
+	*/
 	public static void printColumnInteger(int[][] m, int column) {
 		
 		for(int i = 0; i < m.length; i++) {
@@ -39,11 +55,18 @@ public class Matrix {
 		}
 	}
 	
+	/** Выводит на экран строку целочисленной матрицы
+	 @param m - матрица
+	 @param row - номер строки (начиная с 0)
+	 */
 	public static void printRowInteger(int[][] m, int row) {
 		
 		Array.printInteger(m[row]);
 	}
 	
+	/** Выводит на экран диагональ целочисленной квадратной матрицы
+	 @param m - квадратная матрица, диагональ которой нужно вывести
+	 */
 	public static void printDiagonalInteger(int[][] m) {
 		
 		for(int i = 0; i < m.length; i++) {
