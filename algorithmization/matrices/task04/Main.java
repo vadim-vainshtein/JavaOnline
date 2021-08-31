@@ -28,6 +28,6 @@
 		}
 
 		System.out.println("\nMatrix:");
- 		Matrix.printInteger(m);
+ 		Matrix.print(m);
  	}
  }

@@ -34,7 +34,7 @@
  		int[][] m = Matrix.fillInteger(rows, columns, 10);
 		
 		System.out.println("Matrix:");
-		Matrix.printInteger(m);
+		Matrix.print(m);
 		
 		System.out.println("\nНечётные столбцы, у которых первый элемент больше последнего:");
 		

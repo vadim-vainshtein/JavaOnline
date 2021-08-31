@@ -16,7 +16,7 @@
  		int[][] m = Matrix.fillInteger(n, n, 10);
 		
 		System.out.println("\nMatrix:");
-		Matrix.printInteger(m);
+		Matrix.print(m);
 		
 		System.out.println("\nDiagonal:");
  		Matrix.printDiagonalInteger(m);

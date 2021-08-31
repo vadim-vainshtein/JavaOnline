@@ -19,7 +19,7 @@
  		int[][] m = Matrix.fillInteger(rows, columns, 10);
  		
 		System.out.println("\nMatrix:");
- 		Matrix.printInteger(m);
+ 		Matrix.print(m);
  
 		System.out.printf("\nRow number %d:\n", k);
 		Matrix.printRowInteger(m, k);

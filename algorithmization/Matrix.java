@@ -5,7 +5,7 @@ import algorithmization.Array;
 /** Matrix - класс для работы с матрицами.
  * Матрица задана двумерным массивом m[rows][columns]
  * @author Vadim Vainshtein
- * @version 31.08.2021
+ * @version 1.09.2021
  */
 public class Matrix {
 	
@@ -27,16 +27,29 @@ public class Matrix {
 		return m;
 	}
 	
-	/** Выводит целочисленную матрицу на экран
+	/** Выводит матрицу на экран
 	 @param m - матрица, которую необходимо вывести
 	 */
 	
-	public static void printInteger(int[][] m) {
+	public static void print(int[][] m) {
 		for(int i = 0; i < m.length; i++) {
 			
 			System.out.print("\n(");
 			for(int j = 0; j < m[i].length; j++) {
 				System.out.printf("%d\t", m[i][j]);
+			}
+			System.out.print(")");
+		}
+		
+		System.out.println("");
+	}
+	
+	public static void print(double[][] m) {
+		for(int i = 0; i < m.length; i++) {
+			
+			System.out.print("\n(");
+			for(int j = 0; j < m[i].length; j++) {
+				System.out.printf("%.2f\t", m[i][j]);
 			}
 			System.out.print(")");
 		}
