@@ -10,18 +10,39 @@
  public class Main {
  	
  	public static void main(String[] args) {
+		
+		int rows, columns;
+		
+		try {
+			rows = Integer.parseInt(args[0]);
+			columns = Integer.parseInt(args[1]);
+		}
+		catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("Not enough arguments. Please pass number of rows and columns of the matrix in the command line");
+			return;
+		}
+		catch (NumberFormatException e) {
+			System.out.println("Got argument(s) of a wrong type. Please pass number of rows and columns of the matrix");
+			return;
+		}
+		
+		if( (rows < 1) || (columns < 1) ) {
+			System.out.println("Got argument(s) of a wrong type. Please pass number of rows and columns of the matrix");
+			return;
+		}
  		
- 		int rows = Integer.parseInt(args[0]);
-		int columns = Integer.parseInt(args[1]);
- 		
- 		int[][] m = new int[rows][columns];
- 		
- 		Matrix.fillInteger(m, rows, columns);
-
-		// столбцы будут выведены подряд сверху вниз. Не очень удобно, но задача форматировпния требует отдельных усилий
+ 		int[][] m = Matrix.fillInteger(rows, columns, 10);
+		
+		System.out.println("Matrix:");
+		Matrix.printInteger(m);
+		
+		System.out.println("\nНечётные столбцы, у которых первый элемент больше последнего:");
+		
+		// столбцы будут выведены подряд сверху вниз. Не очень удобно, но задача форматирования требует отдельных усилий
  		for(int i = 0; i < columns; i+=2) {
- 			if(m[0][i] > m[rows-1]) {
+ 			if(m[0][i] > m[rows-1][i]) {
  				Matrix.printColumnInteger(m, i);
+				System.out.println("");
  			}
  		}
  	}

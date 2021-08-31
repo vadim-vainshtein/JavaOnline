@@ -9,19 +9,24 @@ import algorithmization.Array;
 public class Matrix {
 	
 	// заполнить матрицу случайными целыми числами
-	public static void fillInteger(int[][] m, int range) {
+	public static int[][] fillInteger(int rows, int columns, int range) {
 		
-		for(i = 0; i < m.length; i++) {
-			Array.fillInteger(m[i], range);
+		int[][] m = new int[rows][];
+		
+		for(int i = 0; i < rows; i++) {
+			m[i] = Array.fillInteger(columns, range);
 		}
+		
+		return m;
 	}
 	public static void printInteger(int[][] m) {
-		for(i = 0; i < m.length; i++) {
+		for(int i = 0; i < m.length; i++) {
 			
-			System.out.println("");
+			System.out.print("\n(");
 			for(int j = 0; j < m[i].length; j++) {
 				System.out.printf("%d\t", m[i][j]);
 			}
+			System.out.print(")");
 		}
 		
 		System.out.println("");
