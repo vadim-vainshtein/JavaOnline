@@ -16,13 +16,14 @@
  		int k = Integer.parseInt(args[2]);
  		int p = Integer.parseInt(args[3]);
  		
- 		int[][] m = new int[rows][columns];
+ 		int[][] m = Matrix.fillInteger(rows, columns, 10);
  		
- 		Matrix.fillInteger(m, rows, columns);
- 		
+		System.out.println("\nMatrix:");
  		Matrix.printInteger(m);
  
+		System.out.printf("\nRow number %d:\n", k);
 		Matrix.printRowInteger(m, k);
+		System.out.printf("\n\nColumn number %d:\n", p);
  		Matrix.printColumnInteger(m, p);
  	}
  }
