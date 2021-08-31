@@ -13,9 +13,12 @@
  		
  		int n = Integer.parseInt(args[0]);
  		
- 		int[][] m = new int[n][n];
- 		Matrix.fillInteger(m, n, n);
- 		
+ 		int[][] m = Matrix.fillInteger(n, n, 10);
+		
+		System.out.println("\nMatrix:");
+		Matrix.printInteger(m);
+		
+		System.out.println("\nDiagonal:");
  		Matrix.printDiagonalInteger(m);
  	}
  }
