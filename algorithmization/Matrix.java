@@ -87,4 +87,19 @@ public class Matrix {
 		}
 		System.out.println("");
 	}
+	
+	/** Меняет столбцы местами
+	 * @param m - матрица
+	 * @param col1 - первый столбец
+	 * @param col2 - второй столбец
+	 */
+	public static void swapColumns(int[][] m, int col1, int col2) {
+		
+		int buffer;
+		for(int i = 0; i < m.length; i++) {
+			buffer = m[i][col1];
+			m[i][col1] = m[i][col2];
+			m[i][col2] = buffer;
+		}
+	}
 }
