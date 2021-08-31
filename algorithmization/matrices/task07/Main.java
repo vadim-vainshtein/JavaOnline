@@ -31,14 +31,19 @@
 		double[][] m = new double[n][n];
 		
 		int i, j;
+		int count = 0;
+		
 		for(i = 0; i < n; i++) {
 			for(j = 0; j < n; j++) {
-				m[i][j] = rule(i, j, n);
+				if( (m[i][j] = rule(i, j, n)) > 0 ) {
+					count++;
+				}
 			}
 		}
 
 		System.out.println("\nMatrix:");
  		Matrix.print(m);
+		System.out.printf("\n\nNumber of positive elements: %d\n\n", count);
  	}
  	
  	private static double rule(int i, int j, int n) {
