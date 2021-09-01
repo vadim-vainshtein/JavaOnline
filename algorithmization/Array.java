@@ -37,6 +37,18 @@ public class Array {
 		return result;
 	}
 	
+	// для заполнения случайными целыми неотрицательными числами
+	public static int[] fillUnsigned(int length, int max_value) {
+		
+		int[] result = new int[length];
+		
+		for(int i = 0; i < length; i++) {
+			result[i] = (int)(Math.random() * max_value);
+		}
+		
+		return result;
+	}
+	
 	// для заполнения случайными вещественными числами
 	public static double[] fillDouble(int length, double range) {
 		
@@ -97,5 +109,18 @@ public class Array {
 		}
 		
 		return result;
+	}
+	
+	public static int indexOfMax(double[] array) {
+		
+		int currentIndexOfMax = 0;
+		
+		for(int i = 0; i < array.length; i++) {
+			if( array[i] > array[currentIndexOfMax] ) {
+				currentIndexOfMax = i;
+			}
+		}
+		
+		return currentIndexOfMax;
 	}
 }

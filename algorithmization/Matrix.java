@@ -27,6 +27,24 @@ public class Matrix {
 		return m;
 	}
 	
+	/** Заполняет матрицу случайными неотрицательными целыми числами
+	 @param rows - количество строк
+	 @param columns - количество столбцов
+	 @param range - диапазон допустимых значений [-range, range]
+	 @return возвращает указатель на созданную матрицу (двумерный массив)
+	 */
+	
+	public static int[][] fillUnsigned(int rows, int columns, int range) {
+		
+		int[][] m = new int[rows][];
+		
+		for(int i = 0; i < rows; i++) {
+			m[i] = Array.fillUnsigned(columns, range);
+		}
+		
+		return m;
+	}
+	
 	/** Выводит матрицу на экран
 	 @param m - матрица, которую необходимо вывести
 	 */
@@ -102,4 +120,21 @@ public class Matrix {
 			m[i][col2] = buffer;
 		}
 	}
+	
+	/** Вычисляет сумму элементов столбца матрицы
+	 * @param m - матрица
+	 * @param column - номер столбца
+	 * @return возвращает сумму элементов столбца
+	 */
+	 
+	 public static int columnSum(int[][] m, int column) {
+	 	
+	 	int result = 0;
+	 	
+	 	for(int i = 0; i < m.length; i++) {
+	 		result += m[i][column];
+	 	}
+	 	
+	 	return result;
+	 }
 }
