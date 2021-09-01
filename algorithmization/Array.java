@@ -88,7 +88,6 @@ public class Array {
 		return result;
 	}
 	
-	
 	/** Вывести массив целых чисел на экран.
 	 * @param array - массив, который необходимо вывести
 	 */
@@ -179,5 +178,26 @@ public class Array {
 		}
 		
 		return currentIndexOfMax;
+	}
+	
+	/**
+	 * Сортировка обменами (пузырьковая сортировка)
+	 * @param array - массив, который требуется отсортировать
+	 * @return Возвращает количество перестановок, которые пришлось совершить
+	 */	
+	public static int sortBubble(double[] array) {
+		
+		int swaps = 0;
+		
+		for(int i = array.length - 1; i > 0; i--) {
+			for(int j = 0; j < i; j++) {
+				if(array[j] > array[j + 1]) {
+					swapElements(array, j, j + 1);
+					swaps++;
+				}
+			}
+		}
+		
+		return swaps;		
 	}
 }
