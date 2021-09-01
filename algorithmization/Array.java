@@ -70,6 +70,14 @@ public class Array {
 		}
 	}
 	
+	// вывести массив целых чисел на экран
+	public static void printInteger(int[] array, int length) {
+		
+		for(int i = 0; i < length; i++) {
+			System.out.printf("%d; ", array[i]);
+		}
+	}
+	
 	// вывести массив вещественных чисел на экран
 	public static void printDouble(double[] array) {
 		
