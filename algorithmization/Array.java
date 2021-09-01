@@ -111,7 +111,7 @@ public class Array {
 		return result;
 	}
 	
-	public static int indexOfMax(double[] array) {
+	public static int indexOfMax(int[] array) {
 		
 		int currentIndexOfMax = 0;
 		

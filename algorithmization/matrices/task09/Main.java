@@ -3,7 +3,7 @@
  * Определить, какой столбец содержит максимальную сумму
  */
  
- package algorithmization.matrices.task10;
+ package algorithmization.matrices.task09;
  
  //класс для работы с матрицами
  import algorithmization.Matrix;
