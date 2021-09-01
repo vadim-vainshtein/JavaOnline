@@ -117,6 +117,7 @@ public class Array {
 		for(int i = 0; i < array.length; i++) {
 			System.out.printf("%.3f; ", array[i]);
 		}
+		System.out.println("");
 	}
 	
 	/** Поменять местами два элемента.
