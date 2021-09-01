@@ -1,5 +1,11 @@
-/*
- * Array - набор методов для работы с массивами
+/**
+ * Array - набор методов для работы с массивами.
+ * Интерфейс класса спроектирован неоптимально, некоторые методы можно объединить в один
+ * метод с несколько расширенным функционалом, а также использовать перегрузку методов.
+ * Однако на данный момент с этим классом работают практически все задачи из пакета algorithmization,
+ * и при оптимизации придётся переписать их все. Пока что оставляю так.
+ * @author Vadim Vainshtein
+ * @version 02.09.2021.1
  */
 
 package algorithmization;
@@ -8,7 +14,12 @@ import java.lang.Math;
 
 public class Array {
 	
-	// для заполнения случайными натуральными числами
+	/**
+	 * Создать массив случайных натуральных чисел
+	 * @param length - длина массива
+	 * @param max_value - максимальное значение. Будут генерироваться числа в интервале [1, max_value]
+	 * @return Возвращает указатель на созданный массив
+	 */
 	public static int[] fillNatural(int length, int max_value) {
 		
 		int[] result = new int[length];
@@ -25,7 +36,13 @@ public class Array {
 		return result;
 	}
 	
-	// для заполнения случайными целыми числами
+	/**
+	 * Создать массив случайных натуральных чисел.
+	 * @param length - длина массива
+	 * @param max_value - максимальное значение. Будут генерироваться числа в интервале [-max_value, max_value]
+	 * @return Возвращает указатель на созданный массив
+	 */
+	
 	public static int[] fillInteger(int length, int max_value) {
 		
 		int[] result = new int[length];
@@ -37,7 +54,12 @@ public class Array {
 		return result;
 	}
 	
-	// для заполнения случайными целыми неотрицательными числами
+	/**
+	 * Создать массив случайных натуральных чисел.
+	 * @param length - длина массива
+	 * @param max_value - максимальное значение. Будут генерироваться числа в интервале [0, max_value]
+	 * @return Возвращает указатель на созданный массив
+	 */
 	public static int[] fillUnsigned(int length, int max_value) {
 		
 		int[] result = new int[length];
@@ -49,20 +71,27 @@ public class Array {
 		return result;
 	}
 	
-	// для заполнения случайными вещественными числами
-	public static double[] fillDouble(int length, double range) {
+	/**
+	 * Создать массив случайных вещественных чисел.
+	 * @param length - длина массива
+	 * @param max_value - максимальное значение. Будут генерироваться числа в интервале [-max_value, max_value]
+	 * @return Возвращает указатель на созданный массив
+	 */
+	public static double[] fillDouble(int length, double max_value) {
 		
 		double[] result = new double[length];
 				
 		for(int i = 0; i < length; i++) {
-			result[i] = (Math.random() - 0.5) * range;
+			result[i] = (Math.random() - 0.5) * max_value * 2;
 		}
 		
 		return result;
 	}
 	
 	
-	// вывести массив целых чисел на экран
+	/** Вывести массив целых чисел на экран.
+	 * @param array - массив, который необходимо вывести
+	 */
 	public static void printInteger(int[] array) {
 		
 		for(int i = 0; i < array.length; i++) {
@@ -70,7 +99,10 @@ public class Array {
 		}
 	}
 	
-	// вывести массив целых чисел на экран
+	/** Вывести часть массива целых чисел на экран.
+	 * @param array - массив, который необходимо вывести
+	 * @param length - длина выодимого массива (количество элементов, которые необходимо вывести)
+	 */
 	public static void printInteger(int[] array, int length) {
 		
 		for(int i = 0; i < length; i++) {
@@ -78,7 +110,9 @@ public class Array {
 		}
 	}
 	
-	// вывести массив вещественных чисел на экран
+	/** Вывести массив вещественных чисел на экран.
+	 * @param array - массив, который необходимо вывести
+	 */
 	public static void printDouble(double[] array) {
 		
 		for(int i = 0; i < array.length; i++) {
@@ -86,7 +120,11 @@ public class Array {
 		}
 	}
 	
-	// поменять местами два элемента
+	/** Поменять местами два элемента.
+	 * @param array - массив, в котором необходима замена
+	 * @param a - первый элемент
+	 * @param b - второй элемент
+	 */
 	public static void swapElements(double[] array, int a, int b) {
 		
 		double tmp = array[a];
@@ -94,7 +132,10 @@ public class Array {
 		array[b] = tmp;
 	}
 	
-	//Найти минимальный элемент массива
+	/** Найти минимальный элемент массива
+	 * @param array - массив
+	 * @return Возвращает минимальный элемент массива
+	 */
 	public static double min(double[] array) {
 		
 		double result = Double.MAX_VALUE;
@@ -107,6 +148,10 @@ public class Array {
 		return result;
 	}
 	
+	/** Найти минимальный элемент массива
+	 * @param array - массив
+	 * @return Возвращает минимальный элемент массива
+	 */
 	public static int min(int[] array) {
 		
 		int result = Integer.MAX_VALUE;
@@ -119,6 +164,10 @@ public class Array {
 		return result;
 	}
 	
+	/** Найти индекс максимального элемент массива
+	 * @param array - массив
+	 * @return Возвращает индекс первого максимального элемента массива
+	 */
 	public static int indexOfMax(int[] array) {
 		
 		int currentIndexOfMax = 0;
