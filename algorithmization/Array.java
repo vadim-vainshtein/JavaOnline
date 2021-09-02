@@ -5,7 +5,7 @@
  * Однако на данный момент с этим классом работают практически все задачи из пакета algorithmization,
  * и при оптимизации придётся переписать их все. Пока что оставляю так.
  * @author Vadim Vainshtein
- * @version 02.09.2021.2
+ * @version 02.09.2021.3
  */
 
 package algorithmization;
@@ -164,7 +164,7 @@ public class Array {
 		return result;
 	}
 	
-	/** Найти индекс максимального элемент массива
+	/** Найти индекс максимального элемента массива
 	 * @param array - массив
 	 * @return Возвращает индекс первого максимального элемента массива
 	 */
@@ -172,7 +172,26 @@ public class Array {
 		
 		int currentIndexOfMax = 0;
 		
-		for(int i = 0; i < array.length; i++) {
+		for(int i = 1; i < array.length; i++) {
+			if( array[i] > array[currentIndexOfMax] ) {
+				currentIndexOfMax = i;
+			}
+		}
+		
+		return currentIndexOfMax;
+	}
+	
+	/** Найти индекс максимального элемента части массива [start, end]
+	 * @param array - массив
+	 * @param start - элемент, с которого начинать поиск
+	 * @param end - последний элемент
+	 * @return Возвращает индекс первого максимального элемента массива
+	 */
+	public static int indexOfMax(double[] array, int start, int end) {
+		
+		int currentIndexOfMax = start;
+		
+		for(int i = start+1; i <= end; i++) {
 			if( array[i] > array[currentIndexOfMax] ) {
 				currentIndexOfMax = i;
 			}
@@ -200,5 +219,16 @@ public class Array {
 		}
 		
 		return swaps;		
+	}
+	
+	/**
+	 * Сортировка выбором
+	 * @param array - массив, который требуется отсортировать
+	 */	
+	public static void sortDownSelection(double[] array) {
+
+		for(int i = 0; i < array.length; i++) {
+			swapElements(array, indexOfMax(array, i, array.length - 1), i);
+		}
 	}
 }
