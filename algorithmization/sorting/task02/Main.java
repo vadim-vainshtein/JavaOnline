@@ -12,6 +12,8 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
+		// получим входные последовательности
+		
 		final int DEFAULT_LENGTH = 10;
 		final double MAX_VALUE = 10.0;
 		int n = DEFAULT_LENGTH;
@@ -40,7 +42,8 @@ public class Main {
 		System.out.println("\nSequence b:");
 		Array.printDouble(b);
 		
-		// хотелось бы просто их объединить и отсортировать, но, полагаю, задача предполагает нечто иное
+		// здесь начинается решение
+		// хотелось бы последовательности просто объединить и отсортировать, но, полагаю, задача предполагает нечто иное
 		double[] result = new double[n + m];
 		
 		// алгоритм выглядит громоздким, надо подумать, как оптимизировать...
