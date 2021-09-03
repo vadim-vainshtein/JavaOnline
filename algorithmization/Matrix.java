@@ -228,4 +228,23 @@ public class Matrix {
 			 }
 		 }
 	 }
+	 
+	 /**
+	  * Находит наибольший элемент матрицы
+	  * @param m - матрица, в которой требуется найти максимальный элемент 
+	  * @return Возвращает наибольший элемент матрицы m
+	  */
+	 
+	 public static int max(int[][] m) {
+		 
+		 int result = m[0][0];
+		 
+		 for(int i = 0; i < m.length; i++) {
+			 for(int j = 0; j < m[i].length; j++) {
+				 if(result < m[i][j]) result = m[i][j];
+			 }
+		 }
+		 
+		 return result;
+	 }
 }
