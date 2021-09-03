@@ -121,6 +121,21 @@ public class Matrix {
 		}
 	}
 	
+	/**
+	 * Меняет элементы столбца матрицы местами
+	 * @param m - матрица
+	 * @param column - столбец
+	 * @param a - первый элемент
+	 * @param b - второй элемент
+	 */
+	 
+	 public static void swapColumnElements(int[][] m, int column, int a, int b) {
+	 	
+	 	int tmp = m[a][column];
+	 	m[a][column] = m[b][column];
+	 	m[b][column] = tmp;
+	 }
+	
 	/** Вычисляет сумму элементов столбца матрицы
 	 * @param m - матрица
 	 * @param column - номер столбца
@@ -159,6 +174,42 @@ public class Matrix {
 		 
 		 for(int i = 0; i < m.length; i++) {
 			 Array.sortDownSelection(m[i]);
+		 }
+	 }
+	 
+	 /**
+	  * Сортирует столбцы матрицы по возрастанию
+	  * @param m - матрица для сортировки
+	  */
+	 
+	 public static void sortColumns(int[][] m) {
+		 
+		 for(int i = 0; i < m[0].length; i++) {
+			 for(int j = 0; j < m.length - 1; j++) {
+			 	for(int k = j; k < m.length - 1; k++) {
+			 		if(m[k][i] > m[k+1][i]) {
+			 			swapColumnElements(m, i, k, k+1);
+			 		}
+			 	}
+			 }
+		 }
+	 }
+	 
+	 /**
+	  * Сортирует столбцы матрицы по убыванию
+	  * @param m - матрица для сортировки
+	  */
+	 
+	 public static void sortColumns(int[][] m) {
+		 
+		 for(int i = 0; i < m[0].length; i++) {
+			 for(int j = m.length-1; j > 0; j--) {
+			 	for(int k = j; k > 0; k--) {
+			 		if(m[k][i] < m[k-1][i]) {
+			 			swapColumnElements(m, i, k, k-1);
+			 		}
+			 	}
+			 }
 		 }
 	 }
 	 
