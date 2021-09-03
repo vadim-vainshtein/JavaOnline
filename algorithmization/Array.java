@@ -5,7 +5,7 @@
  * Однако на данный момент с этим классом работают практически все задачи из пакета algorithmization,
  * и при оптимизации придётся переписать их все. Пока что оставляю так.
  * @author Vadim Vainshtein
- * @version 02.09.2021.3
+ * @version 03.09.2021.1
  */
 
 package algorithmization;
@@ -274,5 +274,23 @@ public class Array {
 		for(int i = 0; i < array.length; i++) {
 			swapElements(array, indexOfMax(array, i, array.length - 1), i);
 		}
+	}
+	
+	/**
+	 * Умножить каждый элемент массива на multiplier
+	 * @param array - массив
+	 * @param multiplier - множитель
+	 * @return Возвращает массив result = array*multiplier
+	 */
+	
+	public static int[] multiply(int[] array, int multiplier) {
+		
+		int[] result = new int[array.length];
+		
+		for(int i = 0; i < array.length; i++) {
+			result[i] = array[i] * multiplier;
+		}
+		
+		return result;
 	}
 }
