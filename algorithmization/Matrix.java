@@ -5,7 +5,7 @@ import algorithmization.Array;
 /** Matrix - класс для работы с матрицами.
  * Матрица задана двумерным массивом m[rows][columns]
  * @author Vadim Vainshtein
- * @version 1.09.2021
+ * @version 2021.09.03.01
  */
 public class Matrix {
 	
