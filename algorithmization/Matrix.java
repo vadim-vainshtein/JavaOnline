@@ -1,6 +1,7 @@
 package algorithmization;
 
 import algorithmization.Array;
+import java.lang.Math;
 
 /** Matrix - класс для работы с матрицами.
  * Матрица задана двумерным массивом m[rows][columns]
@@ -213,4 +214,18 @@ public class Matrix {
 		 }
 	 }
 	 
+	 /**
+	  * Перемешивает элементы столбцов случайным образом
+	  * @param m - матрица, элементы которой требуется перемешать
+	  */
+	 
+	 public static void shuffle(int[][] m) {
+		 
+		 for(int i = 0; i < m[0].length; i++) {
+			 for(int j = 0; j < m.length; j++) {
+				  int randomElement = (int)(Math.random() * (m.length - 1));
+				  swapColumnElements(m, i, j, randomElement);
+			 }
+		 }
+	 }
 }
