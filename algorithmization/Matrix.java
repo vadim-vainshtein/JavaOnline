@@ -5,7 +5,7 @@ import algorithmization.Array;
 /** Matrix - класс для работы с матрицами.
  * Матрица задана двумерным массивом m[rows][columns]
  * @author Vadim Vainshtein
- * @version 2021.09.03.01
+ * @version 2021.09.03.02
  */
 public class Matrix {
 	
@@ -185,8 +185,8 @@ public class Matrix {
 	 public static void sortColumns(int[][] m) {
 		 
 		 for(int i = 0; i < m[0].length; i++) {
-			 for(int j = 0; j < m.length - 1; j++) {
-			 	for(int k = j; k < m.length - 1; k++) {
+			 for(int j = m.length - 1; j > 0; j--) {
+			 	for(int k = 0; k < j; k++) {
 			 		if(m[k][i] > m[k+1][i]) {
 			 			swapColumnElements(m, i, k, k+1);
 			 		}
@@ -203,9 +203,9 @@ public class Matrix {
 	 public static void sortColumnsDown(int[][] m) {
 		 
 		 for(int i = 0; i < m[0].length; i++) {
-			 for(int j = m.length-1; j > 0; j--) {
-			 	for(int k = j; k > 0; k--) {
-			 		if(m[k][i] < m[k-1][i]) {
+			 for(int j = 0; j < m.length; j++) {
+			 	for(int k = m.length-1; k > j; k--) {
+			 		if(m[k-1][i] < m[k][i]) {
 			 			swapColumnElements(m, i, k, k-1);
 			 		}
 			 	}
