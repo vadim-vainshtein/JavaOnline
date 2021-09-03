@@ -132,6 +132,13 @@ public class Array {
 		array[b] = tmp;
 	}
 	
+	public static void swapElements(int[] array, int a, int b) {
+		
+		int tmp = array[a];
+		array[a] = array[b];
+		array[b] = tmp;
+	}
+	
 	/** Найти минимальный элемент массива
 	 * @param array - массив
 	 * @return Возвращает минимальный элемент массива
@@ -200,6 +207,19 @@ public class Array {
 		return currentIndexOfMax;
 	}
 	
+	public static int indexOfMax(int[] array, int start, int end) {
+		
+		int currentIndexOfMax = start;
+		
+		for(int i = start+1; i <= end; i++) {
+			if( array[i] > array[currentIndexOfMax] ) {
+				currentIndexOfMax = i;
+			}
+		}
+		
+		return currentIndexOfMax;
+	}
+	
 	/**
 	 * Сортировка обменами (пузырьковая сортировка)
 	 * @param array - массив, который требуется отсортировать
@@ -221,12 +241,36 @@ public class Array {
 		return swaps;		
 	}
 	
+	public static int sortBubble(int[] array) {
+		
+		int swaps = 0;
+		
+		for(int i = array.length - 1; i > 0; i--) {
+			for(int j = 0; j < i; j++) {
+				if(array[j] > array[j + 1]) {
+					swapElements(array, j, j + 1);
+					swaps++;
+				}
+			}
+		}
+		
+		return swaps;		
+	}
+	
+	
 	/**
 	 * Сортировка выбором
 	 * @param array - массив, который требуется отсортировать
 	 */	
 	public static void sortDownSelection(double[] array) {
 
+		for(int i = 0; i < array.length; i++) {
+			swapElements(array, indexOfMax(array, i, array.length - 1), i);
+		}
+	}
+	
+	public static void sortDownSelection(int[] array) {
+		
 		for(int i = 0; i < array.length; i++) {
 			swapElements(array, indexOfMax(array, i, array.length - 1), i);
 		}

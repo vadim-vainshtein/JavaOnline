@@ -137,4 +137,29 @@ public class Matrix {
 	 	
 	 	return result;
 	 }
+	 
+	 /**
+	  * Сортирует строки матрицы по возрастанию
+	  * @param m - матрица для сортировки
+	  */
+	 
+	 public static void sortRows(int[][] m) {
+		 
+		 for(int i = 0; i < m.length; i++) {
+			 Array.sortBubble(m[i]);
+		 }
+	 }
+	 
+	 /**
+	  * Сортирует строки матрицы по убыванию
+	  * @param m - матрица для сортировки
+	  */
+	 
+	 public static void sortRowsDown(int[][] m) {
+		 
+		 for(int i = 0; i < m.length; i++) {
+			 Array.sortDownSelection(m[i]);
+		 }
+	 }
+	 
 }

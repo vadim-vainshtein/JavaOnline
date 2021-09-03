@@ -30,6 +30,7 @@
 				if(m[i][j] == 5) {
 					if(++fivesCount == 3) {
 						rowsWithFives[rowsWithFivesCount++] = i;
+						continue;
 					}
 				}
 				
