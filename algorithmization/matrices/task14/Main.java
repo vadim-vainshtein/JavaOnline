@@ -50,7 +50,6 @@
 		
 		// перемешиваем столбцы
 		Matrix.shuffle(matrix);
-		
 		Matrix.print(matrix);
  	}
  }
