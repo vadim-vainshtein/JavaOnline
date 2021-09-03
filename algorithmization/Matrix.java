@@ -200,7 +200,7 @@ public class Matrix {
 	  * @param m - матрица для сортировки
 	  */
 	 
-	 public static void sortColumns(int[][] m) {
+	 public static void sortColumnsDown(int[][] m) {
 		 
 		 for(int i = 0; i < m[0].length; i++) {
 			 for(int j = m.length-1; j > 0; j--) {
