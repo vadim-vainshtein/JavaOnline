@@ -5,7 +5,7 @@
  * Однако на данный момент с этим классом работают практически все задачи из пакета algorithmization,
  * и при оптимизации придётся переписать их все. Пока что оставляю так.
  * @author Vadim Vainshtein
- * @version 03.09.2021.1
+ * @version 2021.09.03.1
  */
 
 package algorithmization;
@@ -292,5 +292,18 @@ public class Array {
 		}
 		
 		return result;
+	}
+	
+	/**
+	 * Вычесть один массив из другого. Количество элементов в массивах должно совпадать. Результат остаётся в массиве 1
+	 * @param array1 - первый массив (из которого происходит вычитание)
+	 * @param array2 - второй массив (который вычитается)
+	 */
+	
+	public static void substract(int[] array1, int[] array2) {
+		
+		for(int i = 0; i < array1.length; i++) {
+			array1[i] -= array2[i];
+		}
 	}
 }

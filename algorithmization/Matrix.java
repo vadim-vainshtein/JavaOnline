@@ -6,7 +6,7 @@ import java.lang.Math;
 /** Matrix - класс для работы с матрицами.
  * Матрица задана двумерным массивом m[rows][columns]
  * @author Vadim Vainshtein
- * @version 2021.09.03.02
+ * @version 2021.09.03.3
  */
 public class Matrix {
 	
@@ -44,6 +44,24 @@ public class Matrix {
 		}
 		
 		return m;
+	}
+	
+	/**
+	 * Копирует матрицу
+	 * @param m - исходная матрица
+	 * @return Возвращает указатель на созданную копию исходной матрицы
+	 */
+	
+	public static int[][] copy(int[][] m) {
+		
+		int[][] result = new int[m.length][];
+		
+		for(int i = 0; i < m.length; i++) {
+			result[i] = new int[m[i].length];
+			System.arraycopy(m[i], 0, result[i], 0, m.length);
+		}
+		
+		return result;
 	}
 	
 	/** Выводит матрицу на экран
@@ -120,6 +138,20 @@ public class Matrix {
 			m[i][col1] = m[i][col2];
 			m[i][col2] = buffer;
 		}
+	}
+	
+	/** Меняет строки матрицы местами. Функция не производит копирования элементов, только меняет местами указатели
+	 * @param m - матрица
+	 * @param row1 - первая строка
+	 * @param row2 - вторая строка
+	 */
+	
+	public static void swapRows(int[][] m, int row1, int row2) {
+		
+		int[] tmp = m[row1];
+		m[row1] = m[row2];
+		m[row2] = tmp;
+		
 	}
 	
 	/**
@@ -247,4 +279,32 @@ public class Matrix {
 		 
 		 return result;
 	 }
+	 
+	 /**
+	  * Привести матрицу к ступенчатой форме
+	  * @param m - исходная матрица
+	  * @return Возвращает новую матрицу, являющуюся ступенчатой формой исходной матрицы m
+	  */
+	 
+	 public static int[][] steppedForm(int[][] m) {
+		 
+		 int[][] result = copy(m);
+		 
+		 for(int i = 0; i < result.length; i++) {
+			 // получаем ненулевой элемент в позиции [i][i]. Если не удаётся, переходим к следующей итерации
+			 for(int j = i + 1; (m[i][i] == 0) && (j < result.length); j++) {
+				 if (m[j][i] != 0) {
+					 swapRows(m, j, i);
+				 }
+			 }
+			 if(m[i][i] == 0) {
+				 break;
+			 }
+			 
+			 // обнуляем весь столбец ниже при помощи элементарных преобразований
+			 
+			 
+			 
+		 }
+
 }
