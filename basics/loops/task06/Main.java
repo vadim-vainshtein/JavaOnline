@@ -11,8 +11,14 @@ public class Main {
 		char c;
 		int code;
 		
-		for(c = 'a'; c < 'A'; c++) {
-			System.out.print(c + '\n');
+		for(c = 'A'; c < 'Z'; c++) {
+			System.out.println(Character.toString(c) + ": " + (int)c);
+		}
+		
+		System.out.println("");
+		
+		for(c = 'a'; c < 'z'; c++) {
+			System.out.println(Character.toString(c) + ": " + (int)c);
 		}
 	}
 }
