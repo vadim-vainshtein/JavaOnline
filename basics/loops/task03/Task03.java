@@ -12,6 +12,7 @@ public class Task03 {
 		
 		for(int i = 1; i  <= 100; i++) {
 			result += i*i;
+			System.out.println(result);
 		}
 		
 		System.out.println("Сумма квадратов первых ста чисел равна " + result);
