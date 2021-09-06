@@ -20,3 +20,15 @@
 
 	algorithmization.Util
 
+Задача 2
+-----------------
+	
+	algorithmization.decomposition.task02.Main
+	
+*Найти НОД четырёх натуральных чисел*
+	
+Легко показать, что НОД(a, b, c, d) = НОД (НОД(a, b), НОД(c, d)). Соответствующий метод описан в классе Main
+	
+	algorithmization.Util
+	
+	
