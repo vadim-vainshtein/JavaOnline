@@ -1,6 +1,6 @@
 /*
  * Задача 2: Даны две неубывающие последовательности. Образовать из них новую неубывающую последовательность.
- * Дополнительный массив не использовать (КАК?.. А куда поместить новую последовательность? - Пока это условие игнорирую...)
+ * Дополнительный массив не использовать
  */
 
 /*
@@ -9,6 +9,9 @@
  */
 
 package algorithmization.sorting.task02;
+
+// copyOf()
+import java.util.Arrays;
 
 // мой класс для работы с массивами
 import algorithmization.Array;
@@ -21,18 +24,29 @@ public class Main {
 		
 		final int DEFAULT_LENGTH = 10;
 		final double MAX_VALUE = 10.0;
-		int n = DEFAULT_LENGTH;
 		int m = DEFAULT_LENGTH;
+		int n = DEFAULT_LENGTH;
 		
 		try {
-			n = Integer.parseInt(args[0]);
-			m = Integer.parseInt(args[1]);
+			m = Integer.parseInt(args[0]);
+			n = Integer.parseInt(args[1]);
+			k = Integer.parseInt(args[2]);
 		}
 		catch(ArrayIndexOutOfBoundsException e) {
-			System.out.println("\n No input, using default array length: " + DEFAULT_LENGTH);
+			System.out.println("\n Not enough arguments, using a default array length: " + DEFAULT_LENGTH);
 		}
 		catch(NumberFormatException e) {
-			System.out.println("\n Invalid input, using default array length: " + DEFAULT_LENGTH);
+			System.out.println("\n Invalid input, using a default array length: " + DEFAULT_LENGTH);
+		}
+		
+		if(m <= 0) {
+			System.out.println("\n Invalid input, using a default array length: " + DEFAULT_LENGTH);
+			m = DEFAULT_LENGTH;
+		}
+		
+		if(n <= 0) {
+			System.out.println("\n Invalid input, using a default array length: " + DEFAULT_LENGTH);
+			n = DEFAULT_LENGTH;
 		}
 		
 		double[] a = Array.fillDouble(n, MAX_VALUE);
@@ -48,12 +62,17 @@ public class Main {
 		Array.printDouble(b);
 		
 		// здесь начинается решение
-		// хотелось бы последовательности просто объединить и отсортировать, но, полагаю, задача предполагает нечто иное
-		double[] result = new double[n + m];
+		a = Arrays.copyOf(a, m + n);
+		// объединим две последовательности и отсортируем их
+		System.arraycopy(a, m, b, 0, n);
+		Array.sortBubble(a);
 		
-		// алгоритм выглядит громоздким, надо подумать, как оптимизировать...
+		//Ниже в комментарии приведено решение с использованием доп. массива, но без необходимости сортировки в конце
+
+		/*
 		int aCount = 0;
 		int bCount = 0;
+		double[] result = new double[m + n];
 		
 		for(int i = 0; i < result.length; i++) {
 			
@@ -70,8 +89,9 @@ public class Main {
 				result[i] = b[bCount++];
 			}
 		}
+		*/
 		
 		System.out.println("\nNew sequence:");
-		Array.printDouble(result);
+		Array.printDouble(a);
 	}
 }
