@@ -76,10 +76,10 @@ public class Main {
 		
 		for(int i = 0; i < result.length; i++) {
 			
-			if (aCount == n) {
+			if (aCount == m) {
 				result[i] = b[bCount++];
 			}
-			else if (bCount == m) {
+			else if (bCount == n) {
 				result[i] = a[aCount++];
 			}
 			else if (a[aCount] < b[bCount]) {
