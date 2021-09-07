@@ -31,4 +31,13 @@
 	
 	algorithmization.Util
 	
+Задача 3
+-----------------
+
+	algorithmization.decomposition.task03.Main
+
+*Найти сумму правильного шестиугольника со стороной a через сумму площадей треугольников*
+
+Методы triangleArea() и hexagonArea() для вычисления площадей треугольника и шестиугольника находятся в классе
 	
+	algorithmization.Util;

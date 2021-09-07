@@ -90,4 +90,26 @@ public class Util {
 	
 	}
 	
+	/**
+	 * Вычисляет площадь треугольника по двум сторонам и углу между ними
+	 * @param a - длина первой стороны
+	 * @param b - второй стороны
+	 * @param alpha - угол между сторонами в радианах
+	 * @return Возвращает площадь треугольника
+	 */
+	public static double triangleArea(double a, double b, double alpha) {
+		
+		return a * b * Math.sin(alpha) / 2;
+	}
+	
+	/**
+	 * Вычисляет площадь правильного шестиугольника со стороной a
+	 * @param a - длина стороны шестиугольника
+	 * @return Возвращает площадь шестиугольника
+	 */
+	public static double hexagonArea(double a) {
+		
+		return triangleArea(a, a, Math.PI / 3) * 6;
+	}
+	
  }
