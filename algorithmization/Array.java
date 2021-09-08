@@ -323,7 +323,7 @@ public class Array {
 				second = max;
 				max = array[i];
 			}
-			else if (array[i] > second) {
+			else if ((array[i] > second) && (array[i] != max)) {
 				second = array[i];
 			}
 		}
