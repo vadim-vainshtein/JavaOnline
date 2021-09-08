@@ -319,8 +319,8 @@ public class Array {
 		int second = Integer.MIN_VALUE;
 		
 		for (int i = 0; i < array.length; i++) {
-			if (array[i] >= max) {
-				//second = max;
+			if (array[i] > max) {
+				second = max;
 				max = array[i];
 			}
 			else if (array[i] > second) {

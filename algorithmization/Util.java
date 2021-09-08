@@ -111,4 +111,65 @@ public class Util {
 		
 		return triangleArea(a, a, Math.PI / 3) * 6;
 	}
+	
+	public static boolean areCoprime(int[] array) {
+		/**
+		 * Определяет, являются ли числа в массиве взаимно простыми
+		 * @param array - массив натуральных чисел
+		 * @return Возвращает true, если числа в массиве попарно взаимно простые, и false, если есть хотя бы два числа, имеющих общий делитель > 1
+		 */
+		 
+		 for(int i = 0; i < array.length - 1; i++) {
+		 	for(int j = i + 1; j < array.length; j++) {
+		 		if(GCD(array[i], array[j]) > 1) {
+		 			return false;
+		 		}
+		 	}
+		 }
+		 
+		 return true;
+	}
+	
+	public static int[] residueClass(int mod, int from, int to, int residue) {
+		/**
+		 * Находит ряд чисел, сравнимых с residue по модулю mod
+		 * @param mod - модуль класса вычетов
+		 * @param from - нижняя граница возвращаемого подмножества класса вычетов
+		 * @param to - верхняя граница возвращаемого подмножества
+		 * @param residue - вычет (экземпляр класса вычетов)
+		 * @return Возвращает массив, содержащий все вычеты, сравнимые с result по модулю mod, между from и to
+		 */
+		 int[] result = new int[(to - from) / mod];
+		 
+		 for(int i = 0; i < result.length; i++) {
+			result[i] = from + (residue % mod) * (i + 1);
+		 }
+		 
+		 return result;
+	}
+	
+	public static int factorial(int value) {
+		/**
+		 *@return Возвращает факториал value
+		 */
+		 
+		 int result = 1;
+		 for(int i = 2; i <= value; i++) {
+		 	result *= i;
+		 }
+		 
+		 return result;
+	}
+	
+	public static int sum(int[] array) {
+		/**
+		 * @return Возвращает сумму всех элементов массива array
+		 */
+		int result = 0;
+		for(int i = 0; i < array.length; i++) {
+			result += array[i];
+		}
+		
+		return result;
+	}
  }
