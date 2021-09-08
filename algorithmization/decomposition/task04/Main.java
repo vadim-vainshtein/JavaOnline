@@ -8,8 +8,8 @@
  import java.nio.file.Path;
  import java.nio.file.Paths;
  import java.util.Scanner;
- import java.util.Arrays;
- 
+ import java.util.ArrayList;
+  
  public class Main {
  	
  	public static void main(String[] args) {
@@ -22,32 +22,33 @@
 		Point[] points = getInput(args[0]);
 		
 		if((points == null) || (points.length == 0)) {
-			System.out.print("Got no input :(\n\n");
-			return
+			System.out.print("\nGot no input :(\n\n");
+			return;
 		}
 		
 		int[] mdp = Point.mostDistant(points);
 		System.out.printf(
 			"The most distant points are (%.2f, %.2f) and (%.2f, %.2f) with a distance of %.2f\n\n",
-			points[mdp[0]].getX, points[mdp[0]].getY, 
-			points[mdp[1]].getX, points[mdp1].getY,
+			points[mdp[0]].getX(), points[mdp[0]].getY(), 
+			points[mdp[1]].getX(), points[mdp[1]].getY(),
 			points[mdp[0]].distanceTo(points[mdp[1]])
 			);
- 	}
  	}
  	
  	public static Point[] getInput(String fileName) {
  		
+		Scanner sc;
+		
  		try {
  			Path path = Paths.get(fileName);
- 			Scanner sc = new Scanner(path);
+ 			sc = new Scanner(path);
  		}
  		catch(Exception e) {
-			System.out.print("Cannot open file: " + e);
+			System.out.print("\nCannot open file: " + e);
 			return null;
  		}
  		
- 		ArrayList<Point> points = new ArrayList();
+ 		ArrayList<Point> points = new ArrayList<Point>();
  		double x, y;
  		
  		try {
@@ -59,10 +60,15 @@
  			}
  		}
  		catch(Exception e) {
- 			System.out.print("Got problems while parsing the input: " + e);
- 			System.out.print("Still trying to continue...\n");
+ 			System.out.print("\nGot problems while parsing the input: " + e);
+ 			System.out.print("\nStill trying to continue...\n");
  		}
  		
- 		return points.toArray();
+ 		Point[] result = new Point[points.size()];
+		for(int i = 0; i < result.length; i++) {
+			result[i] = points.get(i);
+		}
+		
+ 		return result;
  	}
  }

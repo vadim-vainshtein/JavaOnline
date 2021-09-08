@@ -52,7 +52,7 @@ public class Point {
 	 	double dist;
 	 	
 	 	for(int i = 0; i < array.length; i++) {
-	 		for(j = i + 1; j < array.length; j++) {
+	 		for(int j = i + 1; j < array.length; j++) {
 	 			if((dist = array[i].distanceTo(array[j])) > maxDistance) {
 	 				maxDistance = dist;
 	 				result[0] = i;
@@ -60,5 +60,7 @@ public class Point {
 	 			}
 	 		}
 	 	}
+	 	
+	 	return result;
 	 }
 }
