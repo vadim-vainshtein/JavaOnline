@@ -7,12 +7,12 @@ import java.lang.Math;
  */
 public class Util {
  	
- 	/**
- 	 * Сформировать ряд простых чисел от 2 до n
-	 * @param n - число, до которого следует искать простые числа
-	 * @return возвращает массив простых чисел от 2 до n
-	 */
-	public static int[] primeNumbers(int n) {
+ 	public static int[] primeNumbers(int n) {
+		/**
+		 * Сформировать ряд простых чисел от 2 до n
+		 * @param n - число, до которого следует искать простые числа
+		 * @return возвращает массив простых чисел от 2 до n
+		 */
 		
 		// массив, в котором составные индексы будут помечены false;
 		boolean[] prime = new boolean[n+1];
@@ -53,13 +53,13 @@ public class Util {
 		return result;
 	}
 	
-	/**
-	 * Находит НОД чисел a и b
-	 * @param a,b - натуральные числа
-	 * @return Возвращает НОД(a, b)
-	 */
+	
 	 public static int GCD(int a, int b) {
-	 
+		 /**
+		  * Находит НОД чисел a и b
+		  * @param a,b - натуральные числа
+		  * @return Возвращает НОД(a, b)
+		  */ 
 		if(a < b) {
 			int tmp = a;
 			a = b;
@@ -79,36 +79,47 @@ public class Util {
 		return result;
 	}
 	
-	/**
-	 * Находит НОК чисел a и b
-	 * @param a,b - натуральные числа
-	 * @return Возвращает НОК(a, b)
-	 */
 	public static int LCM(int a, int b) {
-	
+		/**
+		 * Находит НОК чисел a и b
+		 * @param a,b - натуральные числа
+		 * @return Возвращает НОК(a, b)
+		 */
 		return a * b / GCD(a, b);
 	
 	}
 	
-	/**
-	 * Вычисляет площадь треугольника по двум сторонам и углу между ними
-	 * @param a - длина первой стороны
-	 * @param b - второй стороны
-	 * @param alpha - угол между сторонами в радианах
-	 * @return Возвращает площадь треугольника
-	 */
 	public static double triangleArea(double a, double b, double alpha) {
+		/**
+		 * Вычисляет площадь треугольника по двум сторонам и углу между ними
+		 * @param a - длина первой стороны
+		 * @param b - второй стороны
+		 * @param alpha - угол между сторонами в радианах
+		 * @return Возвращает площадь треугольника
+		 */
 		
 		return a * b * Math.sin(alpha) / 2;
 	}
 	
-	/**
-	 * Вычисляет площадь правильного шестиугольника со стороной a
-	 * @param a - длина стороны шестиугольника
-	 * @return Возвращает площадь шестиугольника
-	 */
-	public static double hexagonArea(double a) {
+	public static double triangleAreaBySides(double a, double b, double c) {
+		/**
+		 * Вычисляет площадь треугольника по трём сторонам (формула Герона)
+		 * @param a - длина первой стороны
+		 * @param b - второй стороны
+		 * @param c - третьей стороны
+		 * @return Возвращает площадь треугольника
+		 */
 		
+		double p = (a + b + c) / 2;
+		return Math.sqrt (p * (p - a) * (p - b) * (p - c));
+	}
+	
+	public static double hexagonArea(double a) {
+		/**
+		 * Вычисляет площадь правильного шестиугольника со стороной a
+		 * @param a - длина стороны шестиугольника
+		 * @return Возвращает площадь шестиугольника
+		 */
 		return triangleArea(a, a, Math.PI / 3) * 6;
 	}
 	
@@ -179,6 +190,22 @@ public class Util {
 		 */
 		int result = 0;
 		for(int i = 0; i < array.length; i++) {
+			result += array[i];
+		}
+		
+		return result;
+	}
+	
+	public static int sum(int[] array, int first, int count) {
+		/**
+		 * Вычисляет сумму элементов массива
+		 * @param array - входной массив
+		 * @param first - элемент, с которого начинать суммирование
+		 * @param count - колическто элементов, которые необходимо просуммировать
+		 * @return Возвращает сумму count элементов массива array, начиная с first
+		 */
+		int result = 0;
+		for(int i = first; i < first + count; i++) {
 			result += array[i];
 		}
 		
