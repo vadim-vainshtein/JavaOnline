@@ -132,20 +132,32 @@ public class Util {
 	
 	public static int[] residueClass(int mod, int from, int to, int residue) {
 		/**
-		 * Находит ряд чисел, сравнимых с residue по модулю mod
-		 * @param mod - модуль класса вычетов
+		 * Находит ряд чисел, сравнимых с residue по модулю mod, в пределах [from, to]
+		 * @param mod - модуль
 		 * @param from - нижняя граница возвращаемого подмножества класса вычетов
 		 * @param to - верхняя граница возвращаемого подмножества
 		 * @param residue - вычет (экземпляр класса вычетов)
 		 * @return Возвращает массив, содержащий все вычеты, сравнимые с result по модулю mod, между from и to
 		 */
-		 int[] result = new int[(to - from) / mod];
+		
+		int offset = residue % mod;
+		int first = from - (from % mod) + offset;
+		if(offset < (from % mod)) {
+			first += mod;
+		}
+		
+		int last = to - (to % mod) + offset;
+		if(offset > (to % mod)) {
+			last -= mod;
+		}
 		 
-		 for(int i = 0; i < result.length; i++) {
-			result[i] = from + (residue % mod) * (i + 1);
-		 }
+		int[] result = new int[(last - first) / mod + 1];
 		 
-		 return result;
+		for(int i = 0; i < result.length; i++) {
+			result[i] = first + mod * i;
+		}
+		 
+		return result;
 	}
 	
 	public static int factorial(int value) {
