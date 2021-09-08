@@ -306,4 +306,25 @@ public class Array {
 			array1[i] -= array2[i];
 		}
 	}
+	
+	public static int secondMax (int[] array) {
+		
+		/**
+		 *  Находит второе по величине значение в массиве
+		 *  @param array - массив, в котором искать
+		 *  @return возвращает второе по величине значение в массиве
+		 */
+		 
+		int max = Integer.MIN_VALUE;
+		int second = Integer.MIN_VALUE;
+		
+		for (int i = 0; i <array.length; i++) {
+			if (array[i] > max) {
+				second = max;
+				max = array[i];
+			}
+		}
+		
+		return second;
+	}
 }

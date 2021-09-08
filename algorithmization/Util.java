@@ -111,5 +111,4 @@ public class Util {
 		
 		return triangleArea(a, a, Math.PI / 3) * 6;
 	}
-	
  }
