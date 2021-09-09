@@ -211,4 +211,55 @@ public class Util {
 		
 		return result;
 	}
+	
+	public static int numberOfDigits(int n) {
+		/**
+		 * Считает количество разрядов числа в десятичной системе
+		 * @param n - натуральное число
+		 * @return Возвращает количество разрядов числа numberOfDigit
+		 */
+		 
+		 int divider;
+		 for(divider = 10; n / divider > 0; divider *= 10);
+		 return divider / 10;
+	}
+	
+	public static int[] getDigits(int n) {
+		/**
+		 * заполняет массив цифрами натурального числа
+		 * @param n - натуральное число
+		 * @return массив, содержащий цифры числа n в десятичной системе
+		 */
+		 int numOfDigits = numberOfDigits(n);
+		 int[] digits = new int[numOfDigits];
+
+		 for(int i = numOfDigits - 1; i >= 0; i--) {
+		 	digits[i] = n % 10;
+		 	n /= 10;
+		 }
+		 
+		 return digits;
+	}
+		
+	public static int hasMoreDigits(int a, int b) {
+		/**
+		 * Определяет, в каком числе больше разрядов в десятичной системе
+		 * @param a - первое число
+		 * @param b - второе число
+		 * @return Возвращает число, в которм больше десятичных разрядов
+		 */
+		 
+		aNumOfDigits = numberOfDigits(a);
+		bNumOfDigits = numberOfDigits(b);
+		if(aNumOfDigits > bNumOfDigits) {
+			return a;
+		}
+		else if(aNumOfDigits < bNumOfDigits) {
+			return b;
+		}
+		
+		else {
+			return null;
+		}
+	}
  }

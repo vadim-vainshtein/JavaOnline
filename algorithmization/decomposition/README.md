@@ -118,5 +118,43 @@
 
 	algorithmization.Util.triangleAreaBySides();
 
-и теорему Пифагора.
+для вычисления площади треуголбника по трём сторонам.
+
+Задача 10
+-----------------
+
+	algorithmization.decomposition.task10.Main
+
+*Дано натуральное число N. Написать метод, составляющий массив из цифр этого числа*
+
+Реализован метод
+
+	algorithmization.Util.getDigits()
+
+использует метод
+
+	algorithmization.Util.numberOfDigits()
+	
+для подсчёта количества разрядов
+
+
+Задача 11
+-----------------
+
+	algorithmization.decomposition.task11.Main
+
+*Написать метод, определяющий, в каком из даных чисел больше разрядов*
+
+Используется метод
+
+	algorithmization.Util.hasMoreDigits(),
+
+использующий в свою очередь метод numberOfDigits()
+
+Задача 12
+-----------------
+
+	algorithmization.decomposition.task12.Main
+
+*Написать метод(ы) формирования массива, элементами которого являются числа, сумма цифр которых равна k и которые не больше n*
 
