@@ -281,4 +281,22 @@ public class Util {
 			return 0;
 		}
 	}
+	
+	
+	public static int countEvenDigits(int number) {
+		/**
+		 * вычисляет количество чётных цифр в числе number
+		 */
+		
+		int[] digits = getDigits(number);
+		int count = 0;
+		
+		for(int i = 0; i < digits.length; i++) {
+			if(digits[i] % 2 == 0) {
+				count++;
+			}
+		}
+		
+		return count;
+	}
  }

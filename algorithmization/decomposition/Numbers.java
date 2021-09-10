@@ -69,6 +69,8 @@ public class Numbers {
 	 	 */
 	 	 
 	 	 for(int i = 1; i < 10; i +=2 ) {
+			 
+			 digits[index] = i;
 	 	 	// если имеем дело с последним разрядом - записываем полученное число
 	 	 	if(index == digits.length - 1) {
 	 	 		numbers.add(Util.buildNumberFromDigits(digits));
