@@ -220,8 +220,11 @@ public class Util {
 		 */
 		 
 		 int divider;
-		 for(divider = 10; n / divider > 0; divider *= 10);
-		 return divider / 10;
+		 int digits = 1;
+		 for(divider = 10; n / divider > 0; divider *= 10) {
+			 digits++;
+		 }
+		 return digits;
 	}
 	
 	public static int[] getDigits(int n) {
@@ -241,25 +244,26 @@ public class Util {
 		 return digits;
 	}
 		
-	public static int hasMoreDigits(int a, int b) {
+	public static byte hasMoreDigits(int a, int b) {
 		/**
 		 * Определяет, в каком числе больше разрядов в десятичной системе
 		 * @param a - первое число
 		 * @param b - второе число
-		 * @return Возвращает число, в которм больше десятичных разрядов
+		 * @return Возвращает 1, если в a больше цифр; 2, если в b больше цифр; 0, если количество цифр одинаково
 		 */
 		 
-		aNumOfDigits = numberOfDigits(a);
-		bNumOfDigits = numberOfDigits(b);
+		int aNumOfDigits = numberOfDigits(a);
+		int bNumOfDigits = numberOfDigits(b);
+		
 		if(aNumOfDigits > bNumOfDigits) {
-			return a;
+			return 1;
 		}
 		else if(aNumOfDigits < bNumOfDigits) {
-			return b;
+			return 2;
 		}
 		
 		else {
-			return null;
+			return 0;
 		}
 	}
  }

@@ -17,5 +17,6 @@
  		System.out.println("The number: " + N);
  		System.out.print("The digits: ");
  		Array.printInteger(nDigits);
+		System.out.println("");
 	}
  }
