@@ -168,3 +168,14 @@
 	algorithmization.decomposition.task13.Main
 
 * Найти и напечатать все пары "близнецов" в интервале [n, 2n], где n > 2. Близнецы - пары простых чисел, отличающихся на 2*
+
+Для хранения и форматирования пары чисел используется класс
+
+	algorithmization.decomposition.task13.Pair
+
+Использованы методы для получения ряда простых чисел, нахождения среди них близнецов и для вывода их на экран:
+
+	algorithmization.Util.primeNumbers();
+	findTwins();
+	printPairs();
+

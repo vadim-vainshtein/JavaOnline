@@ -7,11 +7,11 @@ import java.lang.Math;
  */
 public class Util {
  	
- 	public static int[] primeNumbers(int n) {
+ 	public static int[] primeNumbers(int m, int n) {
 		/**
-		 * Сформировать ряд простых чисел от 2 до n
+		 * Сформировать ряд простых чисел от m до n
 		 * @param n - число, до которого следует искать простые числа
-		 * @return возвращает массив простых чисел от 2 до n
+		 * @return возвращает массив простых чисел от m до n
 		 */
 		
 		// массив, в котором составные индексы будут помечены false;
@@ -34,8 +34,8 @@ public class Util {
 		}
 		
 		int primesCount = 0;
-		// посчитаем простые числа
-		for(int i = 2; i <= n; i++) {
+		// посчитаем простые числа от m до n
+		for(int i = m; i <= n; i++) {
 			if(prime[i]) {
 				primesCount++;
 			}
@@ -43,8 +43,8 @@ public class Util {
 		
 		// соберём простые числа вместе
 		
-		int[] result = new int[primesCount];		
-		for(int i = 2, j = 0; i <= n; i++) {
+		int[] result = new int[primesCount];
+		for(int i = m, j = 0; i <= n; i++) {
 			if(prime[i]) {
 				result[j++] = i;
 			}
