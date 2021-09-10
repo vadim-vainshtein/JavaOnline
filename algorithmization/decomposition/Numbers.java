@@ -45,13 +45,15 @@ public class Numbers {
 	 	 * При вызове для последнего элемента массива добавляет число, составленное из цифр в массиве digits, в список numbers
 	 	 */
 	 	 
-	 	 int firstDigit = index == 0 ? 1 : digits[index - 1];
+	 	 int firstDigit = (index == 0) ? 1 : digits[index - 1] + 1;
 	 	 
 	 	 for(int i = firstDigit; i < 10; i++) {
 	 	 	
-	 	 	// если имеем дело с последним разрядом - записываем полученное число
+			 digits[index] = i;
+			 // если имеем дело с последним разрядом - записываем полученное число
 	 	 	if(index == digits.length - 1) {
-	 	 		numbers.add(Util.buildNumberFromDigits(digits));
+				int n = Util.buildNumberFromDigits(digits);
+				numbers.add(n);
 	 	 	}
 	 	 	// если нет, то двигаемся по разрядам дальше
 	 	 	else {
