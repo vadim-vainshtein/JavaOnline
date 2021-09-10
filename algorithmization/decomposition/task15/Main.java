@@ -4,7 +4,7 @@
 
 package algorithmization.decomposition.task15;
 
-import algorithmization.decomposition.task15.Numbers;
+import algorithmization.decomposition.Numbers;
 import algorithmization.Array;
 
 public class Main {
@@ -14,6 +14,7 @@ public class Main {
 		final int n = 5;
 		Numbers numbers = new Numbers(n);
 		
+		numbers.initDigitsAscending(0);
 		int[] arrayOfNumbers = numbers.toArray();
 		Array.printInteger(arrayOfNumbers);
 		System.out.println("");
