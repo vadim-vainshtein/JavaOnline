@@ -252,7 +252,7 @@ public class Util {
 		 
 		int number = 0;
 		for(int i = 0; i < digits.length; i++) {
-			number += digits * Math.pow(10, digits.length - i - 1);
+			number += digits[i] * Math.pow(10, digits.length - i - 1);
 		}
 		
 		return number;

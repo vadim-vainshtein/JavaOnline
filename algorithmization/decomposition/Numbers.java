@@ -55,7 +55,7 @@ public class Numbers {
 	 	 	}
 	 	 	// если нет, то двигаемся по разрядам дальше
 	 	 	else {
-	 	 		findNumbers(index + 1);
+				digitsAscending(index + 1);
 	 	 	}
 	 	 }
 	 }
@@ -73,7 +73,7 @@ public class Numbers {
 	 	 	}
 	 	 	// если нет, то двигаемся по разрядам дальше
 	 	 	else {
-	 	 		findNumbers(index + 1);
+				digitsOdd(index + 1);
 	 	 	}
 	 	 }
 	 }

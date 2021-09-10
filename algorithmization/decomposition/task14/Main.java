@@ -13,10 +13,10 @@ public class Main {
 	
 	public static void main (String[] args) {
 		
-		final int k = 1000;
+		final int k = 10000;
 		
 		int[] numbers = armstrongNumbers(k);
-		System.out.println("Armstrong numbers from 1 to " + k + ":")
+		System.out.println("Armstrong numbers from 1 to " + k + ":");
 		Array.printInteger(numbers);
 		System.out.println("");
 	}
@@ -33,7 +33,7 @@ public class Main {
 			int digitSum = Util.sum(Util.getDigits(i));
 			int numberOfDigits = Util.numberOfDigits(i);
 			
-			if(Math.pow(digitSum, numberOfDigits) == k) {
+			if(Math.pow(digitSum, numberOfDigits) == i) {
 				numbers.add(i);
 			}
 		}
