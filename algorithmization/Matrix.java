@@ -3,22 +3,20 @@ package algorithmization;
 import algorithmization.Array;
 import java.lang.Math;
 
-/** Matrix - класс для работы с матрицами.
- * Матрица задана двумерным массивом m[rows][columns]
- * @author Vadim Vainshtein
- * @version 2021.09.03.3
- */
 public class Matrix {
-	
-	/** Заполняет матрицу случайными целыми числами
-	 @param rows - количество строк
-	 @param columns - количество столбцов
-	 @param range - диапазон допустимых значений [-range, range]
-	 @return возвращает указатель на созданную матрицу (двумерный массив)
+	/** Matrix - класс для работы с матрицами.
+	 * Матрица задана двумерным массивом m[rows][columns]
+	 * @author Vadim Vainshtein
+	 * @version 2021.09.11.1
 	 */
 	
 	public static int[][] fillInteger(int rows, int columns, int range) {
-		
+		/** Заполняет матрицу случайными целыми числами
+		 * @param rows - количество строк
+		 * @param columns - количество столбцов
+		 * @param range - диапазон допустимых значений [-range, range]
+		 * @return возвращает указатель на созданную матрицу (двумерный массив)
+		 */	
 		int[][] m = new int[rows][];
 		
 		for(int i = 0; i < rows; i++) {
@@ -28,15 +26,13 @@ public class Matrix {
 		return m;
 	}
 	
-	/** Заполняет матрицу случайными неотрицательными целыми числами
-	 @param rows - количество строк
-	 @param columns - количество столбцов
-	 @param range - диапазон допустимых значений [-range, range]
-	 @return возвращает указатель на созданную матрицу (двумерный массив)
-	 */
-	
 	public static int[][] fillUnsigned(int rows, int columns, int range) {
-		
+		/** Заполняет матрицу случайными неотрицательными целыми числами
+		 * @param rows - количество строк
+		 * @param columns - количество столбцов
+		 * @param range - диапазон допустимых значений [-range, range]
+		 * @return возвращает указатель на созданную матрицу (двумерный массив)
+		 */	
 		int[][] m = new int[rows][];
 		
 		for(int i = 0; i < rows; i++) {
@@ -46,14 +42,12 @@ public class Matrix {
 		return m;
 	}
 	
-	/**
-	 * Копирует матрицу
-	 * @param m - исходная матрица
-	 * @return Возвращает указатель на созданную копию исходной матрицы
-	 */
-	
 	public static int[][] copy(int[][] m) {
-		
+		/**
+		 * Копирует матрицу
+		 * @param m - исходная матрица
+		 * @return Возвращает указатель на созданную копию исходной матрицы
+		 */	
 		int[][] result = new int[m.length][];
 		
 		for(int i = 0; i < m.length; i++) {
@@ -64,11 +58,11 @@ public class Matrix {
 		return result;
 	}
 	
-	/** Выводит матрицу на экран
-	 @param m - матрица, которую необходимо вывести
-	 */
-	
 	public static void print(int[][] m) {
+		/** Выводит матрицу на экран
+		 * param m - матрица, которую необходимо вывести
+		 */
+		
 		for(int i = 0; i < m.length; i++) {
 			
 			System.out.print("\n(");
@@ -80,6 +74,7 @@ public class Matrix {
 		
 		System.out.println("");
 	}
+	
 	
 	public static void print(double[][] m) {
 		for(int i = 0; i < m.length; i++) {
@@ -94,44 +89,40 @@ public class Matrix {
 		System.out.println("");
 	}
 	
-	/** Выводит на экран столбец целочисленной матрицы
-	@param m - матрица
-	@param column - номер столбца (начиная с 0)
-	*/
 	public static void printColumnInteger(int[][] m, int column) {
-		
+		/** Выводит на экран столбец целочисленной матрицы
+		 * @param m - матрица
+		 * @param column - номер столбца (начиная с 0)
+		 */	
 		for(int i = 0; i < m.length; i++) {
 			System.out.printf("(%d)\n", m[i][column]);
 		}
 	}
 	
-	/** Выводит на экран строку целочисленной матрицы
-	 @param m - матрица
-	 @param row - номер строки (начиная с 0)
-	 */
 	public static void printRowInteger(int[][] m, int row) {
-		
+		/** Выводит на экран строку целочисленной матрицы
+		 * @param m - матрица
+		 * @param row - номер строки (начиная с 0)
+		 */	
 		Array.printInteger(m[row]);
 	}
 	
-	/** Выводит на экран диагональ целочисленной квадратной матрицы
-	 @param m - квадратная матрица, диагональ которой нужно вывести
-	 */
 	public static void printDiagonalInteger(int[][] m) {
-		
+		/** Выводит на экран диагональ целочисленной квадратной матрицы
+		 * @param m - квадратная матрица, диагональ которой нужно вывести
+		 */	
 		for(int i = 0; i < m.length; i++) {
 			System.out.printf("%d; ", m[i][i]);
 		}
 		System.out.println("");
 	}
 	
-	/** Меняет столбцы местами
-	 * @param m - матрица
-	 * @param col1 - первый столбец
-	 * @param col2 - второй столбец
-	 */
 	public static void swapColumns(int[][] m, int col1, int col2) {
-		
+		/** Меняет столбцы местами
+		 * @param m - матрица
+		 * @param col1 - первый столбец
+		 * @param col2 - второй столбец
+		 */	
 		int buffer;
 		for(int i = 0; i < m.length; i++) {
 			buffer = m[i][col1];
@@ -140,43 +131,37 @@ public class Matrix {
 		}
 	}
 	
-	/** Меняет строки матрицы местами. Функция не производит копирования элементов, только меняет местами указатели
-	 * @param m - матрица
-	 * @param row1 - первая строка
-	 * @param row2 - вторая строка
-	 */
-	
 	public static void swapRows(int[][] m, int row1, int row2) {
-		
+		/** Меняет строки матрицы местами. Функция не производит копирования элементов, только меняет местами указатели
+		 * @param m - матрица
+		 * @param row1 - первая строка
+		 * @param row2 - вторая строка
+		 */	
 		int[] tmp = m[row1];
 		m[row1] = m[row2];
 		m[row2] = tmp;
 		
 	}
 	
-	/**
-	 * Меняет элементы столбца матрицы местами
-	 * @param m - матрица
-	 * @param column - столбец
-	 * @param a - первый элемент
-	 * @param b - второй элемент
-	 */
-	 
-	 public static void swapColumnElements(int[][] m, int column, int a, int b) {
-	 	
+	public static void swapColumnElements(int[][] m, int column, int a, int b) {
+		/**
+		 * Меняет элементы столбца матрицы местами
+		 * @param m - матрица
+		 * @param column - столбец
+		 * @param a - первый элемент
+		 * @param b - второй элемент
+		 */ 	
 	 	int tmp = m[a][column];
 	 	m[a][column] = m[b][column];
 	 	m[b][column] = tmp;
 	 }
 	
-	/** Вычисляет сумму элементов столбца матрицы
-	 * @param m - матрица
-	 * @param column - номер столбца
-	 * @return возвращает сумму элементов столбца
-	 */
-	 
-	 public static int columnSum(int[][] m, int column) {
-	 	
+	public static int columnSum(int[][] m, int column) {
+		/** Вычисляет сумму элементов столбца матрицы
+		 * @param m - матрица
+		 * @param column - номер столбца
+		 * @return возвращает сумму элементов столбца
+		 */ 	
 	 	int result = 0;
 	 	
 	 	for(int i = 0; i < m.length; i++) {
@@ -186,37 +171,31 @@ public class Matrix {
 	 	return result;
 	 }
 	 
-	 /**
-	  * Сортирует строки матрицы по возрастанию
-	  * @param m - матрица для сортировки
-	  */
-	 
 	 public static void sortRows(int[][] m) {
-		 
+		 /**
+		  * Сортирует строки матрицы по возрастанию
+		  * @param m - матрица для сортировки
+		  */	 
 		 for(int i = 0; i < m.length; i++) {
 			 Array.sortBubble(m[i]);
 		 }
 	 }
 	 
-	 /**
-	  * Сортирует строки матрицы по убыванию
-	  * @param m - матрица для сортировки
-	  */
-	 
 	 public static void sortRowsDown(int[][] m) {
-		 
+		 /**
+		  * Сортирует строки матрицы по убыванию
+		  * @param m - матрица для сортировки
+		  */	 
 		 for(int i = 0; i < m.length; i++) {
 			 Array.sortDownSelection(m[i]);
 		 }
 	 }
 	 
-	 /**
-	  * Сортирует столбцы матрицы по возрастанию
-	  * @param m - матрица для сортировки
-	  */
-	 
 	 public static void sortColumns(int[][] m) {
-		 
+		 /**
+		  * Сортирует столбцы матрицы по возрастанию
+		  * @param m - матрица для сортировки
+		  */	 
 		 for(int i = 0; i < m[0].length; i++) {
 			 for(int j = m.length - 1; j > 0; j--) {
 			 	for(int k = 0; k < j; k++) {
@@ -228,13 +207,11 @@ public class Matrix {
 		 }
 	 }
 	 
-	 /**
-	  * Сортирует столбцы матрицы по убыванию
-	  * @param m - матрица для сортировки
-	  */
-	 
 	 public static void sortColumnsDown(int[][] m) {
-		 
+		 /**
+		  * Сортирует столбцы матрицы по убыванию
+		  * @param m - матрица для сортировки
+		  */	 
 		 for(int i = 0; i < m[0].length; i++) {
 			 for(int j = 0; j < m.length; j++) {
 			 	for(int k = m.length-1; k > j; k--) {
@@ -246,13 +223,11 @@ public class Matrix {
 		 }
 	 }
 	 
-	 /**
-	  * Перемешивает элементы столбцов случайным образом
-	  * @param m - матрица, элементы которой требуется перемешать
-	  */
-	 
 	 public static void shuffle(int[][] m) {
-		 
+		 /**
+		  * Перемешивает элементы столбцов случайным образом
+		  * @param m - матрица, элементы которой требуется перемешать
+		  */	 
 		 for(int i = 0; i < m[0].length; i++) {
 			 for(int j = 0; j < m.length; j++) {
 				  int randomElement = (int)(Math.random() * (m.length - 1));
@@ -261,14 +236,12 @@ public class Matrix {
 		 }
 	 }
 	 
-	 /**
-	  * Находит наибольший элемент матрицы
-	  * @param m - матрица, в которой требуется найти максимальный элемент 
-	  * @return Возвращает наибольший элемент матрицы m
-	  */
-	 
 	 public static int max(int[][] m) {
-		 
+		 /**
+		  * Находит наибольший элемент матрицы
+		  * @param m - матрица, в которой требуется найти максимальный элемент 
+		  * @return Возвращает наибольший элемент матрицы m
+		  */	 
 		 int result = m[0][0];
 		 
 		 for(int i = 0; i < m.length; i++) {
@@ -280,31 +253,45 @@ public class Matrix {
 		 return result;
 	 }
 	 
-	 /**
-	  * Привести матрицу к ступенчатой форме
-	  * @param m - исходная матрица
-	  * @return Возвращает новую матрицу, являющуюся ступенчатой формой исходной матрицы m
-	  */
-	 
-	 public static int[][] steppedForm(int[][] m) {
-		 
-		 int[][] result = copy(m);
-		 
-		 for(int i = 0; i < result.length; i++) {
-			 // получаем ненулевой элемент в позиции [i][i]. Если не удаётся, переходим к следующей итерации
-			 for(int j = i + 1; (m[i][i] == 0) && (j < result.length); j++) {
-				 if (m[j][i] != 0) {
-					 swapRows(m, j, i);
-				 }
-			 }
-			 if(m[i][i] == 0) {
-				 break;
-			 }
-			 
-			 // обнуляем весь столбец ниже при помощи элементарных преобразований
-			 
-			 
-			 
-		 }
-
+	public static int[][] magic(int n) {
+		/**
+		 * Составляет "магический квадрат"  нечётного порядка методом Лубера
+		 * @param n - нечётное число >= 3
+		 * @return Возвращает указатель на магический квадрат порядка n в случае успеха, и null при некорректном n
+		 */
+		
+		if( (n % 2 == 0) || (n < 3) ) {
+			return null;
+		}
+		
+		int[][] matrix = new int[n][n];
+		
+		// строки и столбцы матрицы. Начинаем с середины первой строки
+		int i = 0;
+		int j = n / 2;
+		
+		// двигаемся по диагонали влево вверх
+		for(int k = 1; k <= n*n; k++) {
+			
+			// при выходе за границу квадрата переходим на противоположный его край
+			if(i < 0) i = n - 1;
+			if(j < 0) j = n - 1;
+			
+			// если ячейка уже заполнена, вернёмся обратно и сместимся на одну строку вниз
+			if(matrix[i][j] != 0) {
+				i++;
+				j++;
+				
+				// При выходе за границу возвращаемся на противоположный край
+				if(i == n) i = 0;
+				if(j == n) j = 0;
+				
+				i++;
+			}
+			
+			matrix[i--][j--] = k;
+		}			
+		
+		return matrix;
+	}
 }
