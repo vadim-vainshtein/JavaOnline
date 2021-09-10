@@ -9,7 +9,6 @@ import java.util.ArrayList;
 // для хранения пар чисел используем класс Pair
 import algorithmization.decomposition.task13.Pair;
 import algorithmization.Util;
-import algorithmization.Array;
 
 public class Main {
 	
