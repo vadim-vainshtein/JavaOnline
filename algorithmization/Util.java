@@ -243,6 +243,21 @@ public class Util {
 		 
 		 return digits;
 	}
+	
+	
+	public static int buildNumberFromDigits(int[] digits) {
+		/**
+		 * Возвращает число, состоящее из цифр, заданных элементами массива digits
+		 */
+		 
+		int number = 0;
+		for(int i = 0; i < digits.length; i++) {
+			number += digits * Math.pow(10, digits.length - i - 1);
+		}
+		
+		return number;
+	}
+	
 		
 	public static byte hasMoreDigits(int a, int b) {
 		/**
