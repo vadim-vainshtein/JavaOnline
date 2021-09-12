@@ -16,9 +16,13 @@
  		
  		final int n = 10;
 
- 		// Конструктор по умолчанию заполняет дроби случайными числами для удобства тестирования
  		Fraction[] fractions = new Fraction[n];
- 		System.out.println("\nFractions:");
+		// Конструктор по умолчанию заполняет дроби случайными числами для удобства тестирования
+		for(int i = 0; i < fractions.length; i++) {
+			fractions[i] = new Fraction();
+		}
+		
+		System.out.println("\nFractions:");
  		printFractions(fractions);
  		
  		leadToCommonDenominator(fractions);
@@ -28,6 +32,13 @@
  		sortFractions(fractions);
  		System.out.println("\n\nSorted fractions:");
  		printFractions(fractions);
+		
+		for(int i = 0; i < fractions.length; i++) {
+			fractions[i].reduce();
+		}
+ 		
+ 		System.out.println("\n\nReduced fractions:");
+		printFractions(fractions);
  		
  		System.out.println("\n");
  	}
@@ -38,10 +49,13 @@
  		 */
  		 
  		 // Последовательно вычислим НОК знаменателей 
- 		 int lcm = 0;
+ 		 int lcm = 1;
+		 System.out.println("");
  		 for(int i = 0; i < fractions.length; i++) {
  		 	lcm = Util.LCM(lcm, fractions[i].getDenominator());
+			System.out.print(lcm + " ");
  		 }
+ 		 System.out.println("");
  		 
  		 // Приведём дроби к общему знаменателю
  		 for(int i = 0; i < fractions.length; i++) {
@@ -58,10 +72,10 @@
  		 */
  		 
  		 int i = 0;
- 		 while(i < fractions.length) {
+ 		 while(i < fractions.length - 1) {
  		 	
  		 	if(fractions[i].getNumerator() > fractions[i+1].getNumerator()) {
- 		 		swapFractions(fractions[i], fractions[i+1]);
+ 		 		swapFractions(fractions, i, i+1);
  		 		if(i > 0) i--;
  		 	}
  		 	else {
@@ -73,8 +87,9 @@
  	
  	private static void printFractions(Fraction[] fractions) {
  		
- 		for(int i = 0; i < fractions.length - 1; i++) {
- 			System.out.print(fractions[i].toString(), "; ");
+		int i;
+ 		for(i = 0; i < fractions.length - 1; i++) {
+ 			System.out.print(fractions[i].toString() + "; ");
  		}
  		
  		System.out.println(fractions[i].toString());
@@ -86,9 +101,9 @@
  		 */
  		 
  		 Fraction tmp = new Fraction(fractions[a].getNumerator(), fractions[a].getDenominator());
- 		 fraction[a].setNumerator(fraction[b].getNumerator());
- 		 fraction[a].setDenominator(fraction[b].getDenominator());
- 		 fraction[b].setNumerator(tmp.getNumerator());
- 		 fraction[b].setDenominator(tmp.getDenominator());
+ 		 fractions[a].setNumerator(fractions[b].getNumerator());
+ 		 fractions[a].setDenominator(fractions[b].getDenominator());
+ 		 fractions[b].setNumerator(tmp.getNumerator());
+ 		 fractions[b].setDenominator(tmp.getDenominator());
  	}
  }
