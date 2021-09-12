@@ -258,12 +258,12 @@ public class Array {
 	}
 	
 	
+
+	public static void sortDownSelection(double[] array) {
 	/**
 	 * Сортировка выбором
 	 * @param array - массив, который требуется отсортировать
 	 */	
-	public static void sortDownSelection(double[] array) {
-
 		for(int i = 0; i < array.length; i++) {
 			swapElements(array, indexOfMax(array, i, array.length - 1), i);
 		}
@@ -276,36 +276,30 @@ public class Array {
 		}
 	}
 	
-	/**
-	 * Умножить каждый элемент массива на multiplier
-	 * @param array - массив
-	 * @param multiplier - множитель
-	 * @return Возвращает массив result = array*multiplier
-	 */
 	
-	public static int[] multiply(int[] array, int multiplier) {
-		
-		int[] result = new int[array.length];
-		
-		for(int i = 0; i < array.length; i++) {
-			result[i] = array[i] * multiplier;
-		}
-		
-		return result;
+	public static void sortShell(double[] array) {
+		/**
+		 * Сортировка массива методом Шелла
+		 */
+		 
+		 int i = 0;
+		 while(i < array.length - 1) {
+		 	if(array[i] > array[i+1]) {
+		 		int tmp = array[i];
+		 		array[i] = array[i+1];
+		 		array[i+1] = tmp;
+		 		
+		 		i--;
+		 		if(i < 0) i = 0;
+		 	}
+		 	else {
+		 		i++;
+		 	}
+		 }
 	}
 	
-	/**
-	 * Вычесть один массив из другого. Количество элементов в массивах должно совпадать. Результат остаётся в массиве 1
-	 * @param array1 - первый массив (из которого происходит вычитание)
-	 * @param array2 - второй массив (который вычитается)
-	 */
+
 	
-	public static void substract(int[] array1, int[] array2) {
-		
-		for(int i = 0; i < array1.length; i++) {
-			array1[i] -= array2[i];
-		}
-	}
 	
 	public static int secondMax (int[] array) {
 		

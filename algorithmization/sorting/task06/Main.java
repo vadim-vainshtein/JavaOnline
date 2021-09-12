@@ -1,20 +1,17 @@
 /*
- * Задача 2: Даны две неубывающие последовательности. Образовать из них новую неубывающую последовательность.
- * Дополнительный массив не использовать
+ * Задача 6: Даны две неубывающие последовательности a и b. Указать места в последовательности a, куда нужно вставить элементы b, чтобы последовательность оставалась неубывающей*
  */
 
 /*
- * Использование: task02.Main n m;
+ * Использование: task06.Main n m;
  * n и m - длины входных последовательностей
  */
 
-package algorithmization.sorting.task02;
-
-// copyOf()
-import java.util.Arrays;
+package algorithmization.sorting.task06;
 
 // мой класс для работы с массивами
 import algorithmization.Array;
+
 
 public class Main {
 	
@@ -52,8 +49,8 @@ public class Main {
 		double[] b = Array.fillDouble(m, MAX_VALUE);
 		
 		// Чтобы последовательности были неубывающими, воспользуемся сортировкой
-		Array.sortBubble(a);
-		Array.sortBubble(b);
+		Array.sortShell(a);
+		Array.sortShell(b);
 		
 		System.out.println("\nSequence a:");
 		Array.printDouble(a);
@@ -61,36 +58,28 @@ public class Main {
 		Array.printDouble(b);
 		
 		// здесь начинается решение
-		a = Arrays.copyOf(a, m + n);
-		// объединим две последовательности и отсортируем их
-		System.arraycopy(a, m, b, 0, n);
-		Array.sortBubble(a);
 		
-		//Ниже в комментарии приведено решение с использованием доп. массива, но без необходимости сортировки в конце
-
-		/*
-		int aCount = 0;
-		int bCount = 0;
-		double[] result = new double[m + n];
-		
-		for(int i = 0; i < result.length; i++) {
-			
-			if (aCount == m) {
-				result[i] = b[bCount++];
+		int[] insertIndices = whereToPlace(a, b);
+		System.out.println("\nIndices of sequence a, where to place elements of sequence b to get a non-decreasing sequence:");
+		Array.printInteger(insertIndices);
+		System.out.print("\n\n");
+	}
+	
+	private static int[] whereToPlace(double []a, double[] b) {
+		/**
+		 * возвращает массив индексов элементов массива a, после которых следует поместить
+		 * соответствующий элемент массива b
+		 * индекс может быть равен a.lengh, если элемент следует поместить после последнего элемента a
+		 */
+		int insertIndices = new int[b.length];
+		int aIndex = 0;
+		for(int i = 0; i < b.length; i++) {
+			while(b[i] < a[aIndex]) {
+				aIndex++;
 			}
-			else if (bCount == n) {
-				result[i] = a[aCount++];
-			}
-			else if (a[aCount] < b[bCount]) {
-				result[i] = a[aCount++];
-			}
-			else {
-				result[i] = b[bCount++];
-			}
+			insertIndices[i] = aIndex;
 		}
-		*/
 		
-		System.out.println("\nNew sequence:");
-		Array.printDouble(a);
+		return insertIndices;
 	}
 }
