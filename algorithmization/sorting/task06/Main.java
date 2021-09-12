@@ -67,14 +67,16 @@ public class Main {
 	
 	private static int[] whereToPlace(double []a, double[] b) {
 		/**
-		 * возвращает массив индексов элементов массива a, после которых следует поместить
+		 * возвращает массив индексов массива a, после которых следует поместить
 		 * соответствующий элемент массива b
-		 * индекс может быть равен a.lengh, если элемент следует поместить после последнего элемента a
+		 * индекс может быть равен a.length, если элемент следует поместить после последнего элемента a
 		 */
-		int insertIndices = new int[b.length];
+		int[] insertIndices = new int[b.length];
 		int aIndex = 0;
+		
 		for(int i = 0; i < b.length; i++) {
-			while(b[i] < a[aIndex]) {
+			//System.out.println("b[" + i + "] = " + b[i] + "; a[" + aIndex + "] = " + a[aIndex]);
+			while((aIndex < a.length) && (b[i] > a[aIndex])) {
 				aIndex++;
 			}
 			insertIndices[i] = aIndex;
