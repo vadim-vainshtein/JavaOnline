@@ -12,9 +12,13 @@ Task 2
 ------------
 *Replace all the occurrences of "word" with "letter" in a given string*
 
-Implemented method replace() wich gets original string, pattern to replace and a string for replacement
+Implemented method replace() that gets original string, pattern to replace and a string for replacement
 
 Task 3
 ------------
 *Find all the digits in a string*
 
+Implemented method findDigits() that returns an array of indices of digits in a given string
+
+Task 4
+------------
