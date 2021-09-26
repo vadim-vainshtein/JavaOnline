@@ -22,3 +22,5 @@ Implemented method findDigits() that returns an array of indices of digits in a 
 
 Task 4
 ------------
+*Find the number of numbers in a string*
+
