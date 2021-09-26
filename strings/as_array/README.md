@@ -24,3 +24,11 @@ Task 4
 ------------
 *Find the number of numbers in a string*
 
+Method countNumbers() returns the number of numbers found in a string
+
+
+Task 5
+------------
+*Remove all the extra spaces from a string. Remove the spaces from the beginning and the end of the string*
+
+Method removeExtraSpaces() removes extra spaces from a string
