@@ -2,14 +2,14 @@
  * Task 1: Count the maximum number of consecutive spaces in a string
  */
  
-//package strings/as_string/task01;
+package strings.as_string.task01;
 
-public class Main {
+public class Task01 {
 	
 	public static void main (String[] args) {
 		
 		String input = "   A  string with   a  lot    of spaces      ";
-		int maxNumOfSpaces = maxNumberOfSpacesV1(input);
+		int maxNumOfSpaces = maxNumberOfSpacesV2(input);
 		
 		System.out.print("The input string: \"" + input + "\"\n");
 		System.out.print("The maximum number of consecutive spaces: " + maxNumOfSpaces + "\n");
@@ -40,14 +40,27 @@ public class Main {
 		 return maxNumOfSpaces;
 	}
 	
-	
-		
 	private static int maxNumberOfSpacesV2(String string) {
 		/**
 		 * returns the maximum number of consecutive spaces
-		 * Version 2: using 
+		 * Version 2: using String.indexOf() and StringBuilder
+		 * Let's search the string for a substing containing 1, 2, etc., spaces.
+		 * Stop, when there is no such substing
 		 */
-		 return 0;
 		 
+		int spaceCount = 0, currentIndex = 0;
+		// starting with one space
+		StringBuilder spaceSequence = new StringBuilder(" ");
+		
+		// currentIndex is used to not scan whole the string every time
+		currentIndex = string.indexOf(' ');
+		
+		while(currentIndex != -1) {
+			spaceSequence.append(' ');
+			currentIndex = string.indexOf(spaceSequence.toString(), currentIndex);
+			spaceCount++;
+		}
+		
+		return spaceCount;
 	}
 }
