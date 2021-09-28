@@ -21,3 +21,10 @@ Task 2:
 
 Using StringBuilder.insert() and StringBuilder.indexOf() methods
 
+Task 3
+------
+
+*Check if given word is a palindrome or not*
+
+Using StringBuilder.reverse() method to reverse string and String.equals() to compare them
+

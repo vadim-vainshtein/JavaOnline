@@ -2,9 +2,9 @@
  * Task 2: Insert a symbol 'b' after every symbol 'a' in a given string
  */
 
-//package strings.as_string.task02;
+package strings.as_string.task02;
 
-public class Main {
+public class Task02 {
 	
 	public static void main (String[] args) {
 		
