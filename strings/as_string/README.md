@@ -44,4 +44,20 @@ Using String.substring() and String.concat();
 Task 5
 ------
 
+*Count the number of occurrences of letter 'a' in a given string*
+
+Get an IntStream using String.codePoints(), then filter() and count()
+
+
+Task 6
+------
+
+*Make a new string out of a given one repeating each symbol twice*
+
+Again using IntStream.forEach() to iterate through all the characters, and using a StringBuilder object to make a new string
+
+
+Task 7
+------
+
 *
