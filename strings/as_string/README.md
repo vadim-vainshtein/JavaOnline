@@ -60,4 +60,7 @@ Again using IntStream.forEach() to iterate through all the characters, and using
 Task 7
 ------
 
-*
+*Remove all the spaces and repeated characters from a given string*
+
+Using a StringBuilder object to store the appearing characters. If a character is present in that sequence, then it isn't taken
+to the resulting string.
