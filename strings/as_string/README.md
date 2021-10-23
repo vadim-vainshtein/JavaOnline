@@ -64,3 +64,8 @@ Task 7
 
 Using a StringBuilder object to store the appearing characters. If a character is present in that sequence, then it isn't taken
 to the resulting string.
+
+Task 8
+------
+
+*Find the longest word in a string*

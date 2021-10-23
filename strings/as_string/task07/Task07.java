@@ -22,7 +22,7 @@ public class Task07 {
 	 * Creates a new string from an existing one removing all the repeated characters
 	 */
 	 
-		StringBuilder repeatedChars = new StringBuilder();
+		StringBuilder repeatedChars = new StringBuilder(" "); // space symbol is already there, because we need to remove all of them
 		StringBuilder result = new StringBuilder();
 		
 		str.chars().mapToObj(c -> (char)c).forEach(
