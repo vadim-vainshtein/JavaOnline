@@ -69,3 +69,11 @@ Task 8
 ------
 
 *Find the longest word in a string*
+
+Using String.split() and String.length()
+
+Task 9
+------
+
+*Count the number of small and capital letters in a string*
+
