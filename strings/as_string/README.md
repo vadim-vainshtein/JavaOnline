@@ -77,3 +77,10 @@ Task 9
 
 *Count the number of small and capital letters in a string*
 
+Implemented class StringProperties, that is used to count number of upper and lower case characters using
+Character.isLowerCase() and Character.isUpperCase()
+
+Task 10
+------
+
+*A string X consists of several phrases that end with '.', '?' or '!'. Count the number of phrases.*
