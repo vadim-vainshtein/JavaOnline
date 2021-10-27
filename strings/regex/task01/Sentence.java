@@ -7,12 +7,12 @@ package strings.regex.task01;
 class Sentence implements Comparable {
 	
 	private final String text;
-	private final int numberOfSenteces;
-	private final String DELIMETER = "[!\\.\\?]+";
+	private final int numberOfWords;
+	private final String DELIMETER = "\\s+";
 	
 	public Sentence(String input) {
 		text = input;
-		numberOfSenteces = text.split(DELIMETER).length;
+		numberOfWords = text.split(DELIMETER).length;
 	}
 	
 	public String toString() {
@@ -27,25 +27,25 @@ class Sentence implements Comparable {
 	public static Sentence[] buildArray(String str) {
 		
 		String[] strings = str.split("\n");
-		Sentence[] paragraphs = new Sentence[strings.length];
+		Sentence[] sentences = new Sentence[strings.length];
 		
 		for(int i = 0; i < strings.length; i++) {
-			paragraphs[i] = new Sentence(strings[i]);
+			sentences[i] = new Sentence(strings[i]);
 		}
 		
-		return paragraphs;
+		return sentences;
 	}
 	
-	public static String arrayToString(Sentence[] paragraphs) {
+	public static String arrayToString(Sentence[] sentences) {
 		
 		StringBuilder str = new StringBuilder("");
 		
 		int i;
-		for(i = 0; i < paragraphs.length - 1; i++) {
-			str.append(paragraphs[i].toString() + "\n");
+		for(i = 0; i < sentences.length - 1; i++) {
+			str.append(sentences[i].toString() + "\n");
 		}
 		
-		str.append(paragraphs[i].toString());
+		str.append(sentences[i].toString());
 		
 		return str.toString();
 	}
