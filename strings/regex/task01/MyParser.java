@@ -12,6 +12,7 @@ class MyParser {
 	
 	private final String str;
 	private final String PUNCTUATION_REGEX = "[!\\?\\.]";
+	private final String SPACE_REGEX = "\\s+";
 	
 	public MyParser(String input) {
 		str = input;
@@ -24,7 +25,7 @@ class MyParser {
 		// Get an array of paragraphs, using end of line symbol as a delimiter. Use PUNCTUATION_REGEX to split paragraph into sentences
 		TextPiece[] paragraphs = TextPiece.buildArray(str, "\n", PUNCTUATION_REGEX);
 		Arrays.sort(paragraphs);
-		return TextPiece.arrayToString(paragraphs, "\n");
+		return TextPiece.arrayToString(paragraphs);
 	}
 	
 	public String sortWordsByLength() {
@@ -32,29 +33,25 @@ class MyParser {
 		 * Sorts words by length in every sentence
 		 */
 		
-		StringBuilder result = new StringBuilder("");
-		String[] sentences = str.split(PUNCTUATION_REGEX);
-		// We need to store the punctuation to use them again in the sorted sentences
-		Matcher punctuation = Pattern.compile(PUNCTUATION_REGEX+"\n").matcher(str);
+		//Split the text into sentences
+		TextPiece[] sentences = TextPiece.buildArray(str, PUNCTUATION_REGEX, SPACE_REGEX);
 		
 		for(int i = 0; i < sentences.length; i++) {
-			TextPiece[] words = TextPiece.buildArray(sentences[i], "\\s+", "");
+			//Split every sentence into words
+			TextPiece[] words = TextPiece.buildArray(sentences[i].toString(), SPACE_REGEX, "");
 			Arrays.sort(words);
-			punctuation.find();
-			result.append(TextPiece.arrayToString(words, " ") + str.charAt(punctuation.start()));
+			// After sorting the words get them back into sentences
+			sentences[i].setText(TextPiece.arrayToString(words));
 		}
 		
-		// Let's insert the end of line symbols back
-		for(int i = 0; i < str.length(); i++) {
-			if(str.charAt(i) == '\n') {
-				result.replace(i, i+1, String.valueOf(str.charAt(i)));
-			}
-		}
-		
-		return result.toString();
+		// and again build a string of sentences
+		return TextPiece.arrayToString(sentences);
 	}
 	
 	public String sortWordsByCharOccurrence(char c) {
+		
+		
+		
 		return "not implemented";
 	}
 	
