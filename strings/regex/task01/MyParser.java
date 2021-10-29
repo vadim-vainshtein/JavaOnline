@@ -44,7 +44,7 @@ class MyParser {
 			sentences[i].setText(TextPiece.arrayToString(words));
 		}
 		
-		// and again build a string of sentences
+		// and build a string of sentences again
 		return TextPiece.arrayToString(sentences);
 	}
 	

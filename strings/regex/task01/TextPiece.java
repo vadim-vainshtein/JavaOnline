@@ -1,5 +1,5 @@
 /**
- * TextPiece - a class containing a String object and some information about it, for example, number of words in the string
+ * TextPiece - a class containing a piece of text (paragraph, sentence, word, etc.)
  */
 
 package strings.regex.task01;
@@ -9,13 +9,13 @@ import java.util.regex.Matcher;
 
 class TextPiece implements Comparable {
 	
-	private String text;
-	private int numberOfUnits;
-	private final String DELIMITER;
-	private final String UNIT_DELIMITER;
+	protected String text;
+	protected int numberOfUnits;
+	protected String DELIMITER;
+	protected String UNIT_DELIMITER;
 	
-	public TextPiece(String input, String DELIMITER, String UNIT_DELIMITER) {
-		text = input;
+	public TextPiece(String text, String DELIMITER, String UNIT_DELIMITER) {
+		this.text = text;
 		this.DELIMITER = DELIMITER;
 		this.UNIT_DELIMITER = UNIT_DELIMITER;
 		numberOfUnits = text.split(UNIT_DELIMITER).length;
