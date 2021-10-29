@@ -50,9 +50,19 @@ class MyParser {
 	
 	public String sortWordsByCharOccurrence(char c) {
 		
+		//Split the text into sentences
+		TextPiece[] sentences = TextPiece.buildArray(str, PUNCTUATION_REGEX, SPACE_REGEX);
 		
+		for(int i = 0; i < sentences.length; i++) {
+			//Split every sentence into words
+			Word[] words = Word.buildArray(sentences[i].toString(), SPACE_REGEX, "", c);
+			Arrays.sort(words);
+			// After sorting the words get them back into sentences
+			sentences[i].setText(Word.arrayToString(words));
+		}
 		
-		return "not implemented";
+		// and build a string of sentences again
+		return TextPiece.arrayToString(sentences);
 	}
 	
 	public String toString() {
