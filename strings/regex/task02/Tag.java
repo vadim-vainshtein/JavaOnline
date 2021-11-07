@@ -4,10 +4,12 @@ class Tag {
 	
 	public static final byte TYPE_OPEN = 0;
 	public static final byte TYPE_CLOSE = 1;
-	public static final byte TYPE_OPEN_CLOSE = 2;
+	public static final byte TYPE_EMPTY = 2;
+	public static final byte TYPE_INVALID = -1;
 	
-	private final String OPEN_TAG_PATTERN = "<[^>^/]+>";
-	private final String CLOSE_TAG_PATTERN = "</[^>]+>";
+	private final String OPEN_TAG_PATTERN = "[^>^/]+";
+	private final String CLOSE_TAG_PATTERN = "/[^>]+";
+	private final String EMPTY_TAG_PATTERN = "[^>]+/";
 		
 	private String name;
 	private byte type;
@@ -37,8 +39,13 @@ class Tag {
 		else if(name.matches(CLOSE_TAG_PATTERN)) {
 			type = TYPE_CLOSE;
 		}
+		else if(name.matches(EMPTY_TAG_PATTERN)){
+			type = TYPE_EMPTY;
+			name = name.substring(0, name.length() - 1);
+		}
+		
 		else {
-			type = TYPE_OPEN_CLOSE;
+			type = TYPE_INVALID;
 		}
 	}	
 	

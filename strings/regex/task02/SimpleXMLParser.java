@@ -30,7 +30,7 @@ class SimpleXMLParser {
 			int tagStart = tagMatcher.start();
 			int tagEnd = tagMatcher.end();
 			
-			Tag tag = new Tag(text.substring(tagStart, tagEnd));
+			Tag tag = new Tag(text.substring(tagStart + 1, tagEnd - 1));
 			Node node;
 			
 			switch(tag.getType()) {
@@ -43,13 +43,13 @@ class SimpleXMLParser {
 					
 				case Tag.TYPE_CLOSE:
 					String content = text.substring(prevTagEnd, tagStart);
-					if(!content.isEmpty()) {
+					if(!content.isBlank()) {
 						currentNode.setContent(content);
 					}
 					currentNode = currentNode.getParent();
 					break;
 					
-				case  Tag.TYPE_OPEN_CLOSE:
+				case  Tag.TYPE_EMPTY:
 					node = new Node(tag.getName());
 					currentNode.append(node);
 					break;

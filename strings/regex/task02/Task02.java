@@ -9,12 +9,15 @@ public class Task02 {
 	
 	public static void main(String[] args) {
 		
+		if(args.length == 0) {
+			System.out.println("No input");
+			return;
+		}
+		
 		String text = getText(args);
 		if(text == null) {
 			return;
 		}
-		
-		System.out.print(text);
 		
 		SimpleXMLParser parser = new SimpleXMLParser(text);
 		parser.printTree();
