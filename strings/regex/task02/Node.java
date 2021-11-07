@@ -1,5 +1,7 @@
 package strings.regex.task02;
 
+import java.util.ArrayList;
+
 class Node {
 	
 	private String name;
@@ -10,11 +12,11 @@ class Node {
 	
 	
 	public Node() {
-		children = new ArrayList<Node>;
+		children = new ArrayList<Node>();
 	}
 	
 	public Node(String name) {
-		Node();
+		children = new ArrayList<Node>();
 		this.name = name;
 		content = "";
 	}
@@ -27,8 +29,31 @@ class Node {
 		return content;
 	}
 	
+	public Node getParent() {
+		return parent;
+	}
+	
 	public void append(Node child) {
 		child.parent = this;
 		children.add(child);
+	}
+	
+	public void printTree() {
+		this.printTree(-1);
+	}
+	
+	private void printTree(int tabs) {
+		
+		for(int i = 0; i < tabs; i++) {
+			System.out.print("\t");
+		}
+		
+		if(parent != null) {
+			System.out.println(name + ": " + content);
+		}
+		
+		for(Node node : children) {
+			node.printTree(tabs + 1);
+		}
 	}
 }

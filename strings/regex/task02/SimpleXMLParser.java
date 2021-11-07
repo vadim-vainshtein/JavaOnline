@@ -1,7 +1,7 @@
 package strings.regex.task02;
 
-import java.util.Pattern;
-import java.util.Matcher;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 class SimpleXMLParser {
 	
@@ -21,7 +21,7 @@ class SimpleXMLParser {
 		rootNode = new Node();
 		
 		Pattern tagPattern = Pattern.compile(TAG_PATTERN);
-		Matcher tagMatcher = tagPattern.matcher();
+		Matcher tagMatcher = tagPattern.matcher(text);
 		int prevTagEnd = 0;
 		Node currentNode = rootNode;
 		
@@ -31,25 +31,26 @@ class SimpleXMLParser {
 			int tagEnd = tagMatcher.end();
 			
 			Tag tag = new Tag(text.substring(tagStart, tagEnd));
+			Node node;
 			
-			switch(tag.type) {
+			switch(tag.getType()) {
 				
 				case Tag.TYPE_OPEN:
-					Node node = new Node(tag.name);
-					//node.setAttributes(tag.attrString);
+					node = new Node(tag.getName());
 					currentNode.append(node);
 					currentNode = node;
 					break;
 					
 				case Tag.TYPE_CLOSE:
-					String content = text.substring(prevTagEnd + 1, tagStart - 1);
+					String content = text.substring(prevTagEnd, tagStart);
 					if(!content.isEmpty()) {
 						currentNode.setContent(content);
 					}
+					currentNode = currentNode.getParent();
 					break;
 					
 				case  Tag.TYPE_OPEN_CLOSE:
-					Node node = new Node(tag.name);
+					node = new Node(tag.getName());
 					currentNode.append(node);
 					break;
 			}
@@ -60,11 +61,6 @@ class SimpleXMLParser {
 	
 	
 	public void printTree() {
-		
-	}
-	
-	private printNode(Node node) {
-		System.out.println(node.name + ": " + node.content);
-		for(Node child : 
+		rootNode.printTree();
 	}
 }

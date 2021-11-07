@@ -2,12 +2,12 @@ package strings.regex.task02;
 
 class Tag {
 	
-	public final byte TYPE_OPEN = 0;
-	public final byte TYPE_CLOSE = 1;
-	public final byte TYPE_OPEN_CLOSE = 2;
+	public static final byte TYPE_OPEN = 0;
+	public static final byte TYPE_CLOSE = 1;
+	public static final byte TYPE_OPEN_CLOSE = 2;
 	
-	private final String OPEN_TAG_PATTERN = "<.[^>]+>";
-	private final String CLOSE_TAG_PATTERN = "</.[^>]+>";
+	private final String OPEN_TAG_PATTERN = "<[^>^/]+>";
+	private final String CLOSE_TAG_PATTERN = "</[^>]+>";
 		
 	private String name;
 	private byte type;
