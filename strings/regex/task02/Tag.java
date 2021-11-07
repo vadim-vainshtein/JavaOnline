@@ -1,7 +1,11 @@
 package strings.regex.task02;
 
 class Tag {
-	
+/**
+ * This class is used to analyze XML tags: name, type (<opening>, </closing> or <empty/>),
+ * and get attributes of the tag
+ */
+
 	public static final byte TYPE_OPEN = 0;
 	public static final byte TYPE_CLOSE = 1;
 	public static final byte TYPE_EMPTY = 2;
@@ -17,6 +21,9 @@ class Tag {
 	
 	
 	public Tag(String name) {
+	/**
+	 * @param name - a text between '<' and '>' symbols in an xml tag. It may contain name of the tag and some attributes
+	 */
 		this.name = name;
 		analyzeType();
 		separateAttrString();
@@ -32,6 +39,9 @@ class Tag {
 	
 	
 	private void analyzeType() {
+		/**
+		 * initializes the type variable depending on a type of the tag
+		 */
 		
 		if(name.matches(OPEN_TAG_PATTERN)) {
 			type = TYPE_OPEN;
@@ -41,6 +51,7 @@ class Tag {
 		}
 		else if(name.matches(EMPTY_TAG_PATTERN)){
 			type = TYPE_EMPTY;
+			// if a tag is empty, we need to remove last '/' symbol to have a clean tag name
 			name = name.substring(0, name.length() - 1);
 		}
 		
@@ -51,6 +62,9 @@ class Tag {
 	
 	
 	private void separateAttrString() {
+	/**
+	 * separates attributes string from the tag text
+	 */
 			//not implemented yet
 			attrString = "";
 	}
