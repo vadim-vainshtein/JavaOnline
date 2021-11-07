@@ -54,3 +54,5 @@ There is a string containing a text (xml-document):
 
 Write a parser that allows to sequentially return the contents of the nodes and their types (opening tag, closing tag, content of the tag, tag without body). Don't use any ready-made xml-parsers.
 
+
+Implemented a class SimpleXMLParser, using a class Node to store the tree of XML nodes and a class Tag to analyze the tags. 
