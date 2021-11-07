@@ -4,6 +4,11 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 class SimpleXMLParser {
+/**
+ * A simple parser used to build a tree of xml nodes
+ * Gets an xml text as a String passed to the constructor
+ * and allows to print tree of nodes of the xml using printTree() method
+ */
 	
 	private final String TAG_PATTERN = "</?.[^>]+>";
 	
@@ -17,7 +22,9 @@ class SimpleXMLParser {
 	
 
 	private void parseText(String text) {
-		
+	/**
+	 * builds a tree of xml nodes, starting from rootNode
+	 */
 		rootNode = new Node();
 		
 		Pattern tagPattern = Pattern.compile(TAG_PATTERN);
