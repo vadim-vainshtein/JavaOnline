@@ -15,7 +15,7 @@ public class Student {
 		this.name = name;
 		this.group = group;
 		// copy an array (or a part of it) to be shure, that we have a correct number of grades
-		System.arraycopy(grades, 0, this.grades, NUMBER_OF_GRADES);
+		System.arraycopy(grades, 0, this.grades, 0, NUMBER_OF_GRADES);
 	}
 	
 	public String getName() {
@@ -34,5 +34,15 @@ public class Student {
 		}
 		
 		return true;
+	}
+	
+	public void print() {
+		
+		System.out.print(name + "\tgroup: " + group + "\tgrades: ");
+		for(int grade : grades) {
+			System.out.print(grade + " ");
+		}
+		
+		System.out.print('\n');
 	}
 }
