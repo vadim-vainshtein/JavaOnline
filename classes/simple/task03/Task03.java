@@ -29,25 +29,28 @@ public class Task03 {
 		// initialize
 		System.out.println("\nAll the students:\n-----------------------");
 		for(int i = 0; i < students.length; i++) {
-			students[i] = generateRandomStudent();
-			if(students[i] == null) {
-				System.out.println("Unexpected error");
-				return;
+			
+			try {
+				students[i] = generateRandomStudent();
+			} catch (IllegalArgumentException e) {
+				System.out.println(e.toString());
+				System.exit(-1);
 			}
-			students[i].print();
+			
+			System.out.println(students[i].toString());
 		}
 		
 		// print excellent students
 		System.out.println("\nExcellent students:\n-----------------------");
 		for(Student student : students) {
 			if(student.isExcellent()) {
-				student.print();
+				System.out.println(student.toString());
 			}
 		}
 	}
 	
 	
-	private static Student generateRandomStudent() {
+	private static Student generateRandomStudent() throws IllegalArgumentException {
 		
 		final int MIN_NAME_LENGTH = 3;
 		final int MAX_NAME_LENGTH = 10;
@@ -55,6 +58,7 @@ public class Task03 {
 		
 		int nameLength = random.nextInt(MAX_NAME_LENGTH - MIN_NAME_LENGTH) + MIN_NAME_LENGTH;
 		
+		//build a random name
 		StringBuilder name = new StringBuilder("");
 		// get the first letter (Capital)
 		char c = (char)(random.nextInt('Z' - 'A') + 'A');
@@ -72,9 +76,11 @@ public class Task03 {
 		c = (char)(random.nextInt('Z' - 'A') + 'A');
 		name.append(c + ".");
 		
-		int group = random.nextInt(NUMBER_OF_GROUPS - 1) + 1;
+		// get a random group
+		int group = random.nextInt(NUMBER_OF_GROUPS) + 1;
+
 		boolean isExcellent = random.nextBoolean();
-		
+		//generate random grades depending on isExcellent value
 		int[] grades = new int[Student.NUMBER_OF_GRADES];
 		
 		if(isExcellent) {
@@ -88,16 +94,6 @@ public class Task03 {
 			}
 		}
 		
-		Student student;
-		
-		try {
-			student = new Student(name.toString(), group, grades);
-		}
-		catch(ArrayIndexOutOfBoundsException e) {
-			System.out.println("ERROR");
-			return null;
-		}
-		
-		return student;
+		return  new Student(name.toString(), group, grades);
 	}
 }
