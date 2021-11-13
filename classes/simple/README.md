@@ -19,3 +19,12 @@ Create a class Student with fields:
 - performance (an array of five elements)
 
 Create an array of ten elements of this type. Add a possibility of displaying names and number of groups of students, whose grades are 9 or 10 only.
+
+Task 4
+------
+
+Create a class Train containing fields: *destination*, *train number*, *departure time*.
+Create an array of five elements of type Train. Add a possibility for sorting the elements by train numbers.
+Add a possibility for printing information about a train by number entered by a user.
+Add a possibility for sorting trains by destination, so that trains with a same destination would be sorted by a departure time.
+

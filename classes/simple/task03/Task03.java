@@ -22,7 +22,7 @@ public class Task03 {
 		
 		Student[] students = new Student[NUMBER_OF_STUDENTS];
 		
-		// initialize
+		// initialize array of Stunent objects and print them
 		System.out.println("\nAll the students:\n-----------------------");
 		for(int i = 0; i < students.length; i++) {
 			
