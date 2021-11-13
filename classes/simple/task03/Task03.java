@@ -14,16 +14,12 @@ of students, whose grades are 9 or 10 only.
 
 package classes.simple.task03;
 
-import java.util.Random;
-
 public class Task03 {
 	
 	private static final int NUMBER_OF_STUDENTS = 10;
-	private static Random random;
 	
 	public static void main (String[] args) {
 		
-		random = new Random();
 		Student[] students = new Student[NUMBER_OF_STUDENTS];
 		
 		// initialize
@@ -31,7 +27,7 @@ public class Task03 {
 		for(int i = 0; i < students.length; i++) {
 			
 			try {
-				students[i] = generateRandomStudent();
+				students[i] = StudentGenerator.generateRandomStudent();
 			} catch (IllegalArgumentException e) {
 				System.out.println(e.toString());
 				System.exit(-1);
@@ -47,53 +43,5 @@ public class Task03 {
 				System.out.println(student.toString());
 			}
 		}
-	}
-	
-	
-	private static Student generateRandomStudent() throws IllegalArgumentException {
-		
-		final int MIN_NAME_LENGTH = 3;
-		final int MAX_NAME_LENGTH = 10;
-		final int NUMBER_OF_GROUPS = 3;
-		
-		int nameLength = random.nextInt(MAX_NAME_LENGTH - MIN_NAME_LENGTH) + MIN_NAME_LENGTH;
-		
-		//build a random name
-		StringBuilder name = new StringBuilder("");
-		// get the first letter (Capital)
-		char c = (char)(random.nextInt('Z' - 'A') + 'A');
-		name.append(c);
-		// get other letters
-		for(int i = 0; i < nameLength - 1; i++) {
-			c = (char)(random.nextInt('z' - 'a') + 'a');
-			name.append(c);
-		}
-		
-		// add initials
-		name.append(' ');
-		c = (char)(random.nextInt('Z' - 'A') + 'A');
-		name.append(c + ".");
-		c = (char)(random.nextInt('Z' - 'A') + 'A');
-		name.append(c + ".");
-		
-		// get a random group
-		int group = random.nextInt(NUMBER_OF_GROUPS) + 1;
-
-		boolean isExcellent = random.nextBoolean();
-		//generate random grades depending on isExcellent value
-		int[] grades = new int[Student.NUMBER_OF_GRADES];
-		
-		if(isExcellent) {
-			for(int i = 0; i < grades.length; i++) {
-				grades[i] = random.nextInt(2) + 9;
-			}
-		}
-		else {
-			for(int i = 0; i < grades.length; i++) {
-				grades[i] = random.nextInt(10) + 1;
-			}
-		}
-		
-		return  new Student(name.toString(), group, grades);
 	}
 }
