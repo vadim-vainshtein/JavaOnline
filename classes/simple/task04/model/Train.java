@@ -57,5 +57,14 @@ public class Train {
 		
 		return true;
 	}
+	
+	
+	public static final Comparator<Train> COMPARE_BY_TRAIN_NUMBER = new Comparator<Train>() {
+		
+		@Override
+		public int compare(Train train1, Train train2) {
+			return train1.number - train2.number;
+		}
+	}
 
 }

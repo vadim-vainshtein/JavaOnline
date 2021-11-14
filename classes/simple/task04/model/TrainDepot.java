@@ -1,6 +1,7 @@
 package classes.simple.task04.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 public class TrainDepot {
@@ -60,6 +61,11 @@ public class TrainDepot {
 		if(!trains.equals(other.trains)) return false;
 		
 		return true;
+	}
+	
+	
+	public void sortByTrainNumber() {
+		Collections.sort(trains, Trains.COMPARE_BY_TRAIN_NUMBER);
 	}
 	
 }
