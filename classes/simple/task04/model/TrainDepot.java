@@ -1,30 +1,19 @@
 package classes.simple.task04.model;
 
+import java.util.NoSuchElementException;
+
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
+import java.util.Calendar;
 
 public class TrainDepot {
-	
-	private static final int DEFAULT_NUMBER_OF_TRAINS = 5;
 	
 	private ArrayList<Train> trains;
 	
 	public TrainDepot() {
 		
-		this(DEFAULT_NUMBER_OF_TRAINS);
+		trains = new ArrayList<Train>(numberOfTrains);
 	}
-	
-	public TrainDepot(int numberOfTrains) throws IllegalArgumentException {
-		
-		try {
-			trains = new ArrayList<Train>(numberOfTrains);
-		} catch(IllegalArgumentException e) {
-			throw new IllegalArgumentException("Invalid number of trains in TrainDepot(): " + numberOfTrains
-				+ "\n " + e.toString());
-		}
-	}
-
 	
 	public ArrayList<Train> getTrains() {
 		
@@ -32,7 +21,19 @@ public class TrainDepot {
 	}
 	
 	
-	public void addTrain(int number, String destination, Date departureTime) {
+	public Train getTrainByNumber(int number) throws NoSuchElementException {
+		
+		for(Train train : trains) {
+			if(train.getNumber() == number) {
+				return train;
+			}
+		}
+		
+		throw new NoSuchElementException();
+	}
+	
+	
+	public void addTrain(int number, String destination, Calendar departureTime) {
 		
 		// return a copy of list, let's not allow to modify the original list directly
 		trains.add(new Train(number, destination, departureTime));
@@ -64,8 +65,9 @@ public class TrainDepot {
 	}
 	
 	
-	public void sortByTrainNumber() {
-		Collections.sort(trains, Trains.COMPARE_BY_TRAIN_NUMBER);
+	public void sortByNumber() {
+		
+		Collections.sort(trains, Train.COMPARE_BY_NUMBER);
 	}
 	
 }

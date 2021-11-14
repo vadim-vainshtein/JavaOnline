@@ -1,19 +1,21 @@
 package classes.simple.task04.model;
 
-import java.util.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Comparator;
 
 public class Train {
 	
 	private int number;
 	private String destination;
-	private Date departureTime;
+	private Calendar departureTime;
 	
 	public Train() {
 		// A train number 0, to "", departing now
-		this(0, "", new Date());
+		this(0, "", new GregorianCalendar());
 	}
 	
-	public Train(int number, String destination, Date departureTime) {
+	public Train(int number, String destination, Calendar departureTime) {
 		
 		this.number = number;
 		this.destination = destination;
@@ -21,13 +23,13 @@ public class Train {
 	}
 	
 	public int getNumber() { return number; }
-	public void setNumber(int number) { this.number = number; };
+//	public void setNumber(int number) { this.number = number; };
 	
 	public String getDestination() { return destination; }
-	public void setDestination(String destination) { this.destination = destination; }
+//	public void setDestination(String destination) { this.destination = destination; }
 	
-	public Date getDepartureTime() { return departureTime; }
-	public void setDepartureTime(Date departureTime) { this.departureTime = departureTime; }
+	public Calendar getDepartureTime() { return departureTime; }
+//	public void setDepartureTime(Calendar departureTime) { this.departureTime = departureTime; }
 	
 	@Override
 	public int hashCode() {
@@ -59,12 +61,13 @@ public class Train {
 	}
 	
 	
-	public static final Comparator<Train> COMPARE_BY_TRAIN_NUMBER = new Comparator<Train>() {
+	public static final Comparator<Train> COMPARE_BY_NUMBER = new Comparator<Train>() {
 		
 		@Override
 		public int compare(Train train1, Train train2) {
+			
 			return train1.number - train2.number;
 		}
-	}
+	};
 
 }
