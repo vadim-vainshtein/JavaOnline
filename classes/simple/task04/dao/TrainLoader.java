@@ -62,5 +62,5 @@ public class TrainLoader {
 		
 		scanner.close();
 	}
-	}
+	
 }
