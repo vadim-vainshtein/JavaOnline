@@ -12,7 +12,7 @@ public class TrainDepot {
 	
 	public TrainDepot() {
 		
-		trains = new ArrayList<Train>(numberOfTrains);
+		trains = new ArrayList<Train>();
 	}
 	
 	public ArrayList<Train> getTrains() {
@@ -68,6 +68,12 @@ public class TrainDepot {
 	public void sortByNumber() {
 		
 		Collections.sort(trains, Train.COMPARE_BY_NUMBER);
+	}
+	
+	
+	public void sortByDestination() {
+		
+		Collections.sort(trains, Train.COMPARE_BY_DESTINATION);
 	}
 	
 }

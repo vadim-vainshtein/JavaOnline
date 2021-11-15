@@ -48,4 +48,9 @@ public class DepotController {
 		
 		trainDepot.sortByNumber();
 	}
+	
+	public void sortByDestination() {
+		
+		trainDepot.sortByDestination();
+	}
 }

@@ -1,6 +1,8 @@
 package classes.simple.task04.controller;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+
 import java.util.NoSuchElementException;
 
 import classes.simple.task04.model.Train;
@@ -25,15 +27,9 @@ public class TrainPrinter {
 		
 		Calendar departureTime = train.getDepartureTime();
 	
-		int month = departureTime.get(Calendar.MONTH);
-		int day = departureTime.get(Calendar.DAY_OF_MONTH);
+		String time = String.format("%1$td %1$5tb %1$tH:%1$tM", departureTime);
 		
-		int h = departureTime.get(Calendar.HOUR);
-		int m = departureTime.get(Calendar.MINUTE);
-		
-		String time = String.format("%d2.%d2 %d2:%d2", day, month, h, m);
-		
-		depotView.print(String.format("%d3", train.getNumber()) + "\t" + train.getDestination() + "\t" + time);
+		depotView.print(String.format(" %03d%25s\t%s", train.getNumber(), train.getDestination(), time));
 	}
 	
 	
@@ -46,7 +42,7 @@ public class TrainPrinter {
 	
 	public void printAllTrains() {
 		
-		depotView.print("Trains in the depot:\n");
+		depotView.print("\nTrains in the depot:\n");
 		printHeader();		
 		
 		ArrayList<Train> trains = trainDepot.getTrains();
@@ -64,6 +60,7 @@ public class TrainPrinter {
 			Train train = trainDepot.getTrainByNumber(trainNumber);
 			printHeader();
 			printTrainInfo(train);
+			depotView.print("\n\n");
 		} catch(NoSuchElementException e) {
 			depotView.print("\nTrain number " + trainNumber + " not found\n");
 		}

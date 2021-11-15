@@ -1,7 +1,6 @@
 package classes.simple.task04.view;
 
 import java.io.PrintStream;
-import java.util.Calendar;
 
 public class DepotView {
 	

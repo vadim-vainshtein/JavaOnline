@@ -69,5 +69,20 @@ public class Train {
 			return train1.number - train2.number;
 		}
 	};
+	
+	public static final Comparator<Train> COMPARE_BY_DESTINATION = new Comparator<Train>() {
+		
+		@Override
+		public int compare(Train train1, Train train2) {
+			
+			int result = train1.destination.compareTo(train2.destination);
+			
+			if(result == 0) {
+				return train1.departureTime.compareTo(train2.departureTime);
+			}
+			
+			return result;
+		}
+	};
 
 }
