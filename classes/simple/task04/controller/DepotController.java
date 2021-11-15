@@ -30,6 +30,10 @@ public class DepotController {
 		this(System.out);
 	}
 	
+	/*
+	 * DepotController needs a PrintStream object to tell
+	 * a DepotView object where to print the output
+	 */
 	public DepotController(PrintStream ps) {
 		
 		trainDepot = new TrainDepot();

@@ -6,10 +6,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Calendar;
 
+/**
+ * a class used to store information about trains
+ */
 public class TrainDepot {
 	
 	private ArrayList<Train> trains;
 	
+	 
 	public TrainDepot() {
 		
 		trains = new ArrayList<Train>();

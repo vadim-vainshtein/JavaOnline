@@ -11,7 +11,9 @@ import classes.simple.task04.view.DepotView;
 
 public class TrainPrinter {
 	/*
-	 * This class is a part of Train Depot Controller, used for all the printing tasks
+	 * This class is a part of Train Depot Controller.
+	 * It is used for all the printing tasks,
+	 * printTrainByNumber(), printAllTrains(), ...
 	 */
 	
 	private DepotView depotView;
