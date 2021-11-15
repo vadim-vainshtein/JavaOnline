@@ -1,15 +1,10 @@
 package classes.simple.task04.main;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Scanner;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 import java.io.IOException;
 import java.io.FileNotFoundException;
 
 import classes.simple.task04.controller.DepotController;
+import classes.simple.task04.dao.TrainLoader;
 import classes.simple.task04.exception.InvalidFileFormatException;
 
 public class Main {
@@ -91,52 +86,14 @@ public class Main {
 	}
 	
 	
-	private static void initDepot(String fileName)
-			throws IOException, InvalidFileFormatException {
+	private static void initDepot(String fileName) 
+		throws IOException, InvalidFileFormatException {
 		
 		// creates a DepotController with a default number of trains = 5 and System.out stream as an output
 		depotController = new DepotController();
-		Calendar time = new GregorianCalendar();
-		
-		Path path = Paths.get(fileName);
-		Scanner scanner = new Scanner(path);
-		
-		while(scanner.hasNextLine()){
-			
-			String[] data = scanner.nextLine().split(";");
-			
-			if(data[0].isEmpty()) {
-				break;
-			}
-			
-			int trainNumber;
-			String destination;
-			
-			try {
-				trainNumber = Integer.parseInt(data[0].trim());
-				destination = data[1].trim();
-				String[] departureDate = data[2].split("/");
-				String[] departureTime = data[3].split(":");
-			
-				int day = Integer.parseInt(departureDate[0].trim());
-				int month = Integer.parseInt(departureDate[1].trim()) - 1;
-				int h = Integer.parseInt(departureTime[0].trim());
-				int m = Integer.parseInt(departureTime[1].trim());
-						
-				time = new GregorianCalendar(time.get(Calendar.YEAR), month, day, h, m);
-			}
-			catch(ArrayIndexOutOfBoundsException e) {
-				throw new InvalidFileFormatException("Wrong file format: " + fileName + "\n\n" + e.getMessage());
-			}
-			catch(NumberFormatException e) {
-				throw new InvalidFileFormatException("Wrong file format: " + fileName + "\n\n" + e.getMessage());
-			}
-				
-			depotController.addTrain(trainNumber, destination, time);
-		}
-		
-		scanner.close();
+		TrainLoader.loadFromFile(depotController, fileName);
 	}
+			
 	
 	private static void printTrainByNumber(String numberStr) throws NumberFormatException {
 		
