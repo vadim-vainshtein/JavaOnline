@@ -28,3 +28,11 @@ Create an array of five elements of type Train. Add a possibility for sorting th
 Add a possibility for printing information about a train by number entered by a user.
 Add a possibility for sorting trains by destination, so that trains with a same destination would be sorted by a departure time.
 
+Task 5
+------
+
+*From here I switch back to russian to increase speed of writing...*
+
+Опишите класс, реализующий десятичный счётчик, который может увеличивать или уменьшать своё значение на единицу в заданном диапазоне. Предусмотрите инициализацию счётчика значениями по умолчанию и произвольными значениями. Счётчик имеет методы увеличения и уменьшения состояния, получения текущего состояния. Написать код, демонстрирующий возможности класса.
+
+
